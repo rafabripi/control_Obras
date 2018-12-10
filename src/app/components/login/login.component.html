@@ -1,0 +1,23 @@
+<div style="text-align:center">
+    <h1>
+      {{ title }}
+    </h1>
+    <img width="300" alt="Angular Logo" src="../../../assets/logo_large.png">
+    <h2>Bienvenido</h2>
+
+
+<form action="#" #formUsuario="ngForm" (ngSubmit)="onSubmit(formUsuario)" >
+    <label for="usuario">Usuario</label><br>
+    <input type="text" name="usuario"  required>
+    <!-- <span>Nombre de usuario requerido</span> -->
+
+    <br>
+    <label for="pass">Contraseña</label><br>
+    <input type="password" name="pass"  >
+    <!-- <span>Contraseña requerida</span> -->
+
+    <br><br>
+    <input type="submit" value="Entrar"  required>
+  </form>
+
+</div>
