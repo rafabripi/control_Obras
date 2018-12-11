@@ -36,3 +36,10 @@ footer{
     color: gray;
     text-decoration: none;
 }
+form button,
+form input[type='submit']{
+    font-size: 15;
+    padding: 5px;
+    margin-top: 10px;
+    width: 65px;
+}

@@ -8,13 +8,16 @@
 
 <form action="#" #formUsuario="ngForm" (ngSubmit)="onSubmit(formUsuario)" >
     <label for="usuario">Usuario</label><br>
-    <input type="text" name="usuario" >
+    <input type="text" name="usuario"  required>
+    <!-- <span>Nombre de usuario requerido</span> -->
+
     <br>
     <label for="pass">Contraseña</label><br>
     <input type="password" name="pass"  >
+    <!-- <span>Contraseña requerida</span> -->
 
     <br><br>
-    <input type="submit" value="Entrar"  >
+    <input type="submit" value="Entrar"  required>
   </form>
 
 </div>
