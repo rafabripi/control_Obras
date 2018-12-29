@@ -7,6 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { appRoutingProviders, routing } from "./app.routing";
 
 //SERVICIOS 
+import { ObrasService } from "./services/obras.service";
 
 //COMPONENTES
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { AddObraComponent } from './components/add-obra/add-obra.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { ObrasComponent } from './components/obras/obras.component';
 
 
 
@@ -29,7 +31,8 @@ import { HomeComponent } from './components/home/home.component';
     ErrorComponent,
     AddObraComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ObrasComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    ObrasService
   ],
   bootstrap: [AppComponent]
 })

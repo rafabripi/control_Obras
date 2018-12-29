@@ -15,7 +15,7 @@ const APP_ROUTES: Routes = [
     {path: '', component: LoginComponent},
     {path: 'home', component: HomeComponent},
     {path: 'obrasList', component: ListaObrasComponent},
-    {path: 'obrasInfo', component: ObraInfoComponent},
+    {path: 'obrasInfo/:id', component: ObraInfoComponent},
     {path: 'addObra', component: AddObraComponent},
     {path: '**', component: ErrorComponent}
 ];

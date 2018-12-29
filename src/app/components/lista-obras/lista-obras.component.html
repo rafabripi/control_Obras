@@ -1,7 +1,33 @@
 <app-navbar></app-navbar>
 <div class="animated fadeIn fast">
   <h2>Listado de obras</h2>
-  <p>
+  <p class="text-justify">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit delectus eaque reiciendis laboriosam! Dolore dicta quod nesciunt, tempora quae iste debitis sequi doloremque quibusdam rerum labore alias, cumque nulla praesentium.
   </p>
+
+  <!--Lista de bootstap - con redireccion de angular - clases de estilos bootstrap
+     - recorrido por la lista de obras-->
+  <div class="list-group">
+      <div class="container">
+        <div class="row" *ngFor="let item of obras; let i = index">
+
+          <div class="col col-sm-8 px-0">
+            <a [routerLink]="['/obrasInfo', i]" routerLinkActive="router-link-active" 
+              class="list-group-item list-group-item-action animated fadeIn fast" 
+              > {{item.nombre_obra}}
+            </a>
+          </div>
+          <div class="col col-sm-3 px-0">
+            <a [routerLink]="['/obrasInfo', i]" routerLinkActive="router-link-active"
+              class="list-group-item list-group-item-action text-wrap">Ciudad</a>
+          </div>
+          <div class="col col-sm-1 px-0">
+            <a [routerLink]="['/obrasInfo', i]" routerLinkActive="router-link-active"
+              class="list-group-item list-group-item-action list-group-item-success">estado</a>
+          </div>
+
+        </div>
+      </div>
+  </div>
+
 </div>
