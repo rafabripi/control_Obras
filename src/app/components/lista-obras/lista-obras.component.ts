@@ -7,14 +7,19 @@ import { ObrasService, Obra } from '../../services/obras.service';
   styleUrls: ['./lista-obras.component.css']
 })
 export class ListaObrasComponent implements OnInit {
-  obras: Obra[] = [];
+  obras: Obra[];
 
   constructor(private _obrasService: ObrasService) {
-
+    this.obras = [];
   }
 
   ngOnInit() {
-    this.obras = this._obrasService.getObras();    
+    let obs = this._obrasService.getObras();
+    obs.subscribe( (data)=>{
+      this.obras = data['obras'];
+    } );
   }
+
+
 
 }

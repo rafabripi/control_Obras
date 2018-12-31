@@ -22,4 +22,4 @@ const APP_ROUTES: Routes = [
 
 //exportar modulo de routing
 export const appRoutingProviders: any[] = [];
-export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES, {useHash: true});

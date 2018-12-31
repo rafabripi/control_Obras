@@ -1,264 +1,46 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+
+const httpOptions = {
+  //poner el token por medio de un interceptor http://blog.enriqueoriol.com/2017/11/httpclient-vs-http-angular.html
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InRpcG8iOiJBZG1pbmlzdHJhZG9yIiwiZXN0YWRvIjp0cnVlLCJfaWQiOiI1YzEzMDM5NGYzM2Q2MzA5ZTRkMTVkNDYiLCJ1c2VyIjoicmJyaWJpZXgiLCJub21icmUiOiJSYWZhZWwiLCJhcGVsbGlkb3MiOiJCcmliaWVzY2EiLCJfX3YiOjB9LCJpYXQiOjE1NDUzNDk1ODgsImV4cCI6MTU0Nzk0MTU4OH0.pyF4RQUSgqHJCxa4OktQKPfTKcig9kLDbG-NMDR7rxc'
+  })
+};
 
 @Injectable()
 export class ObrasService {
-    obras: Obra[];
+  //obras: Obra[];
 
-    constructor(){
-        this.obras = [
-            {
-              id : "5c1c2be74be5a91a30e25d72",
-              clave_municipal : "AP-DUOP-10/18",
-              nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD MURO FIRME",
-              localidad : "LA CAMPANA",
-              meta : "1 OBRA",
-              beneficiarios_directos : 500,
-              direccion_responsable : "DESARROLLO SOCIAL",
-              numero_contrato : "DA-DES-01/01",
-              fecha_contrato : "2018-12-19T00:00:00.000Z",
-              supervisor : "Zutano",
-              tipo_ejecucion : "CONTRATO",
-              programa : "FONDO III",
-              inversion_aprobada : 234789.5,
-              contratista : "ING. MELGOZA",
-              estado : "TERMINADA",
-            },
-
-            {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "REHABILITACION DE LA CALLE FULANA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              },
-              {
-                id : "5c1c2be74be5a91a30e25d72",
-                clave_municipal : "AP-DUOP-10/18",
-                nombre_obra : "PROGRAMA DE MEJORA TU VIVIENDA EN SU MODALIDAD CASA NUEVA",
-                localidad : "LA CAMPANA",
-                meta : "1 OBRA",
-                beneficiarios_directos : 500,
-                direccion_responsable : "DESARROLLO SOCIAL",
-                numero_contrato : "DA-DES-01/01",
-                fecha_contrato : "2018-12-19T00:00:00.000Z",
-                supervisor : "Zutano",
-                tipo_ejecucion : "CONTRATO",
-                programa : "FONDO III",
-                inversion_aprobada : 234789.5,
-                contratista : "ING. MELGOZA",
-                estado : "TERMINADA",
-              }
-          ];
-      
-    }
+  constructor(private http: HttpClient){
+    //this.obras = [];
+  }
   
-  getObras():Obra[] {
-    return this.obras;
+  getObras(): any {    
+    return this.http.get('http://localhost:3900/obra/getObras', httpOptions);
   }
-
-  getObra(id: string){
-    return this.obras[id];
+  
+  getObra(){
+    return this.http.get('http://localhost:3900/obra/getObras', httpOptions);
+  //  return this.obras[id];
   }
-
 }
 
 export interface Obra{
-    id : String,
-    clave_municipal : String,
-    nombre_obra : String,
-    localidad : String,
-    meta :  String,
-    beneficiarios_directos: number,
-    direccion_responsable : String,
-    numero_contrato : String,
-    fecha_contrato : String,
-    supervisor : String,
-    tipo_ejecucion : String,
-    programa : String,
-    inversion_aprobada : number,
-    contratista : String,
-    estado :  String
+  id : String,
+  clave_municipal : String,
+  nombre_obra : String,
+  localidad : String,
+  meta :  String,
+  beneficiarios_directos: number,
+  direccion_responsable : String,
+  numero_contrato : String,
+  fecha_contrato : String,
+  supervisor : String,
+  tipo_ejecucion : String,
+  programa : String,
+  inversion_aprobada : number,
+  contratista : String,
+  estado :  String
 }
