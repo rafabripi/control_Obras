@@ -20,9 +20,8 @@ export class ObrasService {
   getObras(): any {    
     return this.http.get('http://localhost:3900/obra/getObras', httpOptions);
   }
-  
-  getObra(){
-    return this.http.get('http://localhost:3900/obra/getObras', httpOptions);
+
+  getObra(id: string){
   //  return this.obras[id];
   }
 }

@@ -8,34 +8,22 @@ import { ObrasService, Obra } from "../../services/obras.service";
   styleUrls: ['./obra-info.component.css']
 })
 export class ObraInfoComponent implements OnInit {
-  obra: any;
-  obras: Obra;
+  obra: Obra[];
   idObra: any;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private _obrasService: ObrasService
-    ){      
+  constructor(private activatedRoute: ActivatedRoute, private _obrasService: ObrasService){
+      this.obra = [];
       this.activatedRoute.params.subscribe( params =>{
-      //this.obra = this._obrasService.getObra(params['id']);
-      this.idObra = params['id'];      
+        this.idObra = params['id'];
     });
   }
 
   ngOnInit() {
-    this.getObra();  
-  } 
-
-  getObra(){
-    let obs = this._obrasService.getObra();
-    //en la sig linea se general el error
-    obs.subscribe( (data)=>{
-        this.obras = data['obras'];
-        this.obra = this.obras[this.idObra];
+    this._obrasService.getObras()
+      .subscribe( (data: any)=>{
+        this.obra = data.obras[this.idObra];
       },(err)=>{
-        console.log(err, 'este es el error');
-      },
-      ()=>{console.log('Done');
-      }
-    );
-  }
+        console.error(err, 'Error');
+      }); 
+  } 
 }
