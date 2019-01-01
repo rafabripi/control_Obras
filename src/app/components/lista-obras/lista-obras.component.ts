@@ -15,8 +15,8 @@ export class ListaObrasComponent implements OnInit {
 
   ngOnInit() {
     this._obrasService.getObras()
-      .subscribe( (data: any)=>{
-      this.obras = data.obras;
+      .subscribe(data=>{
+      this.obras = data;      
     },(err)=>{
       console.error(err, 'Error');
     });

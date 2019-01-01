@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 const httpOptions = {
   //poner el token por medio de un interceptor http://blog.enriqueoriol.com/2017/11/httpclient-vs-http-angular.html
@@ -11,18 +12,22 @@ const httpOptions = {
 
 @Injectable()
 export class ObrasService {
-  //obras: Obra[];
 
   constructor(private http: HttpClient){
-    //this.obras = [];
   }
   
   getObras(): any {    
-    return this.http.get('http://localhost:3900/obra/getObras', httpOptions);
+    return this.http.get('http://localhost:3900/obra/getObras', httpOptions)
+                    .pipe(map(data =>{
+                      return data['obras'];
+                    }));
   }
 
-  getObra(id: string){
-  //  return this.obras[id];
+  getObra(id: string): any{
+    return this.http.get(`http://localhost:3900/obra/getObra/${id}`, httpOptions)
+                    .pipe(map(data =>{
+                      return data['obra'];
+                    }));
   }
 }
 

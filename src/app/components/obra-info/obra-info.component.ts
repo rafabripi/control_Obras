@@ -19,9 +19,10 @@ export class ObraInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._obrasService.getObras()
-      .subscribe( (data: any)=>{
-        this.obra = data.obras[this.idObra];
+    this._obrasService.getObra(this.idObra)
+      .subscribe(data=>{
+        //this.obra = data[this.idObra];
+        this.obra = data;
       },(err)=>{
         console.error(err, 'Error');
       }); 

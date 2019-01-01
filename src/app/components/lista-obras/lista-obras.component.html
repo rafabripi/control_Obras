@@ -11,19 +11,26 @@
       <div class="container">
         <div class="row" *ngFor="let item of obras; let i = index">
 
-          <div class="col col-sm-8 px-0">
-            <a [routerLink]="['/obrasInfo', i]" routerLinkActive="router-link-active" 
+          <div class="col col-sm-7 px-0">
+            <a [routerLink]="['/obrasInfo', item._id]" routerLinkActive="router-link-active" 
               class="list-group-item list-group-item-action animated fadeIn fast" 
               > {{item.nombre_obra}}
             </a>
           </div>
-          <div class="col col-sm-3 px-0">
-            <a [routerLink]="['/obrasInfo', i]" routerLinkActive="router-link-active"
-              class="list-group-item list-group-item-action text-wrap">Ciudad</a>
+          <div class="col col-sm-2 px-0">
+            <a [routerLink]="['/obrasInfo', item._id ]" routerLinkActive="router-link-active"
+              class="list-group-item list-group-item-action text-wrap">{{item.localidad}}</a>
           </div>
-          <div class="col col-sm-1 px-0">
-            <a [routerLink]="['/obrasInfo', i]" routerLinkActive="router-link-active"
-              class="list-group-item list-group-item-action list-group-item-success">estado</a>
+          <div class="col col-sm-3 px-0">
+            <a [routerLink]="['/obrasInfo', item._id]" routerLinkActive="router-link-active"
+              class="list-group-item list-group-item-action"
+                [ngClass]="{
+                  'list-group-item-success': item.estado == 'TERMINADA',
+                  'list-group-item-warning': item.estado == 'EN PROGRESO',
+                  'list-group-item-primary': item.estado == 'APROVADA PERO SIN INICIAR',
+                  'list-group-item-light': item.estado == 'A CANCELAR'
+                }"
+                >{{item.estado}}</a>
           </div>
 
         </div>
