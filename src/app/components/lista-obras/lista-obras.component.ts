@@ -9,15 +9,15 @@ import { ObrasService, Obra } from '../../services/obras.service';
 export class ListaObrasComponent implements OnInit {
   obras: Obra[];
 
-  constructor(private _obrasService: ObrasService){
+  constructor(private _obrasService: ObrasService) {
     this.obras = [];
   }
 
   ngOnInit() {
     this._obrasService.getObras()
-      .subscribe(data=>{
-      this.obras = data;      
-    },(err)=>{
+      .subscribe(data => {
+      this.obras = data;
+    }, (err) => {
       console.error(err, 'Error');
     });
   }

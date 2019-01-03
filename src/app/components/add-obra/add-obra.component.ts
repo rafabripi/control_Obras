@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ObrasService, Obra } from '../../services/obras.service';
 
 @Component({
   selector: 'app-add-obra',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddObraComponent implements OnInit {
   public title: String;
+  public obraToSave: any;
 
-  constructor() {
+  constructor(private _obraService: ObrasService) {
     this.title = 'Crar nuevo proyecto de obra';
   }
 
   ngOnInit() {
+  }
+
+  onSubmit(form) {
+    this._obraService.saveObra(this.obraToSave);
   }
 
 }
