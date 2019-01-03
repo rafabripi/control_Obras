@@ -7,181 +7,84 @@
     </p>
   </div>
 
-  <div class="list-group">
-    
-    <div class="container">
-      <div class="row">
-  
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Clave de obra</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.clave_municipal}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Nombre de la obra</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.nombre_obra}} </a>
-          </div>
-
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Localidad</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.localidad}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Meta</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.meta}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Beneficiados directos</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.beneficiarios_directos}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Direccion responsable</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.direccion_responsable}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Numero de contrato</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.numero_contrato}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Fecha de contrato</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.fecha_contrato | date: 'dd/MM/y' }} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Supervisor</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.supervisor}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Tipo de ejecucion</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.tipo_ejecucion}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Programa</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.programa}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Localidad</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.localidad}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Inversion aprobada</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.inversion_aprobada | currency }} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Contratista</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast list-group-item-dark"> {{obra.contratista}} </a>
-          </div>
-          
-      </div>
-
-      <div class="row">
-
-          <div class="col col-sm-3 px-0">
-            <a class="list-group-item list-group-item-action animated fadeIn fast">Estado de la obra</a>
-          </div>
-          <div class="col col-sm-8 px-0">
-              <a class="list-group-item list-group-item-action animated fadeIn fast"
-                [ngClass]="{
-                  'list-group-item-success': obra.estado == 'TERMINADA',
-                  'list-group-item-warning': obra.estado == 'EN PROGRESO',
-                  'list-group-item-primary': obra.estado == 'APROVADA PERO SIN INICIAR',
-                  'list-group-item-light': obra.estado == 'A CANCELAR'
-                }"
-              > {{obra.estado}} </a>
-          </div>
-          
-      </div>
-    </div>
-  </div>
-
+  <table class="table animated fadeIn fast">
+        
+    <tbody>
+        <tr>
+            <td>Clave de obra</td>
+            <th scope="row">{{obra.clave_municipal}}</th>
+            <td
+            [ngClass]="{
+                'table-success': obra.estado == 'TERMINADA',
+                'table-warning': obra.estado == 'EN PROGRESO',
+                'table-primary': obra.estado == 'APROVADA PERO SIN INICIAR',
+                'list-group-item-light': obra.estado == 'A CANCELAR'
+              }"
+            > </td>
+        </tr>
+        <tr>
+            <td>Nombre de la obra</td>
+            <th>{{obra.nombre_obra}}</th>
+        </tr>
+        <tr>
+            <td>Localidad</td>
+            <th>{{obra.localidad}}</th>
+        </tr>
+        <tr>
+            <td>Meta</td>
+            <th>{{obra.meta}}</th>
+        </tr>
+        <tr>
+            <td>Beneficiados directos</td>
+            <th>{{obra.beneficiarios_directos}}</th>
+        </tr>
+        <tr>
+            <td>Direccion responsable</td>
+            <th>{{obra.direccion_responsable}}</th>
+        </tr>
+        <tr>
+            <td>Numero de contrato</td>
+            <th>{{obra.numero_contrato}}</th>
+        </tr>
+        <tr>
+            <td>Fecha de contrato</td>
+            <th>{{obra.fecha_contrato | date: 'dd/MM/y' }}</th>
+        </tr>
+        <tr>
+            <td>Supervisor</td>
+            <th>{{obra.supervisor}}</th>
+        </tr>
+        <tr>
+            <td>Tipo de ejecucion</td>
+            <th>{{obra.tipo_ejecucion}}</th>
+        </tr>
+        <tr>
+            <td>Programa</td>
+            <th>{{obra.programa}}</th>
+        </tr>
+        <tr>
+            <td>Localidad</td>
+            <th>{{obra.localidad}}</th>
+        </tr>
+        <tr>
+            <td>Inversion aprobada</td>
+            <th>{{obra.inversion_aprobada | currency }}</th>
+        </tr>
+        <tr>
+            <td>Contratista</td>
+            <th>{{obra.contratista}}</th>
+        </tr>
+        <tr>
+            <td>Estado de la obra</td>
+            <th
+            [ngClass]="{
+                'table-success': obra.estado == 'TERMINADA',
+                'table-warning': obra.estado == 'EN PROGRESO',
+                'table-primary': obra.estado == 'APROVADA PERO SIN INICIAR',
+                'list-group-item-light': obra.estado == 'A CANCELAR'
+              }"
+            >{{obra.estado}}</th>
+        </tr>
+    </tbody>
+  </table>
 </div>
