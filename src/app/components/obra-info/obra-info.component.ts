@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { ObrasService, Obra } from "../../services/obras.service";
+import { ActivatedRoute } from '@angular/router';
+import { ObrasService, Obra } from '../../services/obras.service';
 
 @Component({
   selector: 'app-obra-info',
@@ -11,15 +11,16 @@ export class ObraInfoComponent implements OnInit {
   obra: Obra[];
   idObra: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private _obrasService: ObrasService){
+  constructor(private activatedRoute: ActivatedRoute, private _obrasService: ObrasService) {
       this.obra = [];
-      this.activatedRoute.params.subscribe( params =>{
+      this.activatedRoute.params.subscribe( params => {
+        console.log(this.activatedRoute.url._value[0].parameters);
         this.idObra = params['id'];
     });
   }
 
   ngOnInit() {
     this._obrasService.getObra(this.idObra)
-      .subscribe(data => this.obra = data); 
-  } 
+      .subscribe(data => this.obra = data);
+  }
 }

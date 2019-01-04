@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   usuario: String;
-  constructor() { 
-    this.usuario = 'Usuario de REST'
+  constructor() {
+    this.usuario = 'Usuario de REST';
   }
 
   ngOnInit() {

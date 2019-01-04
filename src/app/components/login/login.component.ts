@@ -8,17 +8,18 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public title: string;
+  public hasLogin: boolean;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     this.title = 'Gestion de obras publicas';
-
+    this.hasLogin = true;
   }
 
   ngOnInit() {
+    
   }
-  onSubmit(form){
+  onSubmit(form) {
     form.reset();
-    console.log("Evento submit lanzado");
-    this.router.navigate(['/home']);  
+    this.router.navigate(['/home']);
   }
 }

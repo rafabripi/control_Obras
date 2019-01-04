@@ -12,7 +12,8 @@ import { ErrorComponent } from './components/error/error.component';
 
 // array con las rutas
 const APP_ROUTES: Routes = [
-    {path: '', component: LoginComponent},
+    {path: '', pathMatch: 'full', redirectTo: 'login'},
+    {path: 'login', component: LoginComponent},
     {path: 'home', component: HomeComponent},
     {path: 'obrasList', component: ListaObrasComponent},
     {path: 'obrasInfo/:id', component: ObraInfoComponent},
