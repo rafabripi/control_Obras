@@ -18,16 +18,12 @@ export class ObrasService {
 
   getObras(): any {
     return this.http.get('http://localhost:3900/obra/getObras', httpOptions)
-                    .pipe(map(data => {
-                      return data['obras'];
-                    }));
+                    .pipe(map(data => data['obras']));
   }
 
   getObra(id: string): any {
     return this.http.get(`http://localhost:3900/obra/getObra/${id}`, httpOptions)
-                    .pipe(map(data => {
-                      return data['obra'];
-                    }));
+                    .pipe(map(data => data['obra']));
   }
   saveObra(obraToSave) {
     return this.http.post('http://localhost:3900/obra/saveObra', obraToSave, httpOptions);

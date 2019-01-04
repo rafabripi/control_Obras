@@ -11,7 +11,7 @@ export class AddObraComponent implements OnInit {
   public obraToSave: any;
 
   constructor(private _obraService: ObrasService) {
-    this.title = 'Crar nuevo proyecto de obra';
+    this.title = 'Crear nuevo proyecto de obra';
   }
 
   ngOnInit() {
