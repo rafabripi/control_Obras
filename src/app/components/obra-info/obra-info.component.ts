@@ -14,7 +14,6 @@ export class ObraInfoComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private _obrasService: ObrasService) {
       this.obra = [];
       this.activatedRoute.params.subscribe( params => {
-        console.log(this.activatedRoute.url._value[0].parameters);
         this.idObra = params['id'];
     });
   }

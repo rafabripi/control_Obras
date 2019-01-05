@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ObrasService, Obra } from '../../services/obras.service';
 
 @Component({
@@ -19,6 +20,11 @@ export class AddObraComponent implements OnInit {
 
   onSubmit(form) {
     this._obraService.saveObra(this.obraToSave);
+  }
+S
+  guardar(forma){
+    console.log('metodo guardar', forma);
+    
   }
 
 }
