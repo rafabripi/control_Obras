@@ -1,28 +1,159 @@
 <h2 class="mt-2">{{title}} </h2>
 
-<form (ngSubmit)='guardar(forma)' #forma='ngForm' novalidate=''>
-    <div class="form-group">
-        <label for="clave_municipal">Clave municipal</label>
+<form [formGroup]="formulario" (ngSubmit)="guardarObra()">
+
+    <div class="form-group row">
+        <label>Clave municipal</label>
         <input 
           class="form-control" 
           type="text" 
           placeholder="Clave municipal que se asignara a la obra"
-          id="clave_municipal"
-          name="clave_municipal"
-          ngModel
-          minlength="4"
-          required
+          formControlName="clave_municipal"
         >
     </div>
 
-     <div class="form-group">
-        <label for="nombre_obra">Nombre</label>
+     <div class="form-group row">
+        <label>Nombre</label>
         <input 
-          type="text" 
           class="form-control" 
-          id="nombre_obra" 
-          placeholder="Nombre que se asignara a la obra">
+          type="text" 
+          placeholder="Nombre que se asignara a la obra"
+          formControlName="nombre_obra"
+        >
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group row">
+        <label>Localidad</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Localidad"
+          formControlName="localidad"
+        >
+    </div>
+
+    <div class="form-group row">
+        <label>Meta M2</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Meta en metros cuadrados"
+          formControlName="meta"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Beneficiarios directos</label>
+        <input 
+          class="form-control" 
+          type="number" 
+          placeholder="Numero de beneficiarios"
+          formControlName="beneficiarios_directos"
+        >
+    </div>
+
+    <div class="form-group row">
+        <label>Direccion responsable</label>
+        <select 
+          class="form-control custom-select"
+          formControlName="direccion_responsable"
+        >
+            <option selected>Selecciona una dirección...</option>
+            <option value="1">Obras Publicas</option>
+            <option value="2">Urbanismo</option>
+            <option value="3">Desarrollo social</option>
+          </select>
+    </div>
+    
+    <div class="form-group row">
+        <label>Numero de contrato</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Numero de contrato"
+          formControlName="numero_contrato"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Fecha de contrato</label>
+        <input 
+          class="form-control" 
+          type="date" 
+          placeholder="Fecha de contrato"
+          formControlName="fecha_contrato"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Supervisor</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Supervisor"
+          formControlName="supervisor"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Tipo de ejecucion</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Tipo de ejecucion"
+          formControlName="tipo_ejecucion"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Programa</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Programa"
+          formControlName="programa"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Inversion aprobada</label>
+        <input 
+          class="form-control" 
+          type="number" 
+          placeholder="Inversion aprobada"
+          formControlName="inversion_aprobada"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Contratista</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Contratista"
+          formControlName="contratista"
+        >
+    </div>
+    
+    <div class="form-group row">
+        <label>Estado</label>
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Seleccione una opción</option>
+          <option value="1">Aprovada pero sin iniciar</option>
+          <option value="2">En proceso</option>
+          <option value="3">Terminada</option>
+        </select>
+    </div>
+
+    <div class="form-group row">
+        <label>Nota</label>
+        <input 
+          class="form-control" 
+          type="text" 
+          placeholder="Notas"
+          formControlName="nota"
+        >
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
