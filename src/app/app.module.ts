@@ -11,14 +11,15 @@ import { ObrasService } from './services/obras.service';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { ListaObrasComponent } from './components/lista-obras/lista-obras.component';
 import { ObraInfoComponent } from './components/obra-info/obra-info.component';
-import { ErrorComponent } from './components/error/error.component';
+import { ErrorComponent } from './shared/error/error.component';
 import { AddObraComponent } from './components/add-obra/add-obra.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HomeComponent } from './pages/home/home.component';
 import { ObrasComponent } from './components/obras/obras.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 
 
@@ -32,7 +33,8 @@ import { ObrasComponent } from './components/obras/obras.component';
     AddObraComponent,
     NavbarComponent,
     HomeComponent,
-    ObrasComponent
+    ObrasComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

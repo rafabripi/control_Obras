@@ -2,12 +2,12 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // imports para componentes creados
-import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 import { ListaObrasComponent } from './components/lista-obras/lista-obras.component';
 import { ObraInfoComponent } from './components/obra-info/obra-info.component';
 import { AddObraComponent } from './components/add-obra/add-obra.component';
-import { ErrorComponent } from './components/error/error.component';
+import { ErrorComponent } from './shared/error/error.component';
 
 
 // array con las rutas
