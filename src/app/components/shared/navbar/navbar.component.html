@@ -16,6 +16,11 @@
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link " [routerLink]="['/addObra']">Nueva obra</a>
           </li>
+
+          <!--probar menu dinamico-->
+          <li *ngFor="let item of _navbarService.menu; let i = index;" class="nav-item" routerLinkActive="active"> 
+            <a class="nav-link " [routerLink]="[ item.url ]"> {{item.titulo}} </a>
+          </li>
         </ul>
 
         <form class="form-inline my-2 my-lg-0">

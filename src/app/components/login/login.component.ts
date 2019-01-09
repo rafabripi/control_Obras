@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
   onSubmit(form) {
     form.reset();
     this.router.navigate(['/home']);
