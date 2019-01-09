@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-//RUTAS
-import { appRoutingProviders, routing } from "./app.routing";
+// RUTAS
+import { appRoutingProviders, routing } from './app.routing';
 
-//SERVICIOS 
-import { ObrasService } from "./services/obras.service";
+// SERVICIOS
+import { ObrasService } from './services/obras.service';
 
-//COMPONENTES
+// COMPONENTES
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { ListaObrasComponent } from './components/lista-obras/lista-obras.component';
