@@ -29,10 +29,9 @@ import { AddObraComponent } from '../pages/add-obra/add-obra.component';
         ReactiveFormsModule
     ],
     exports: [
-        
     ],
     providers: [
         paguesRoutingProviders
     ],
 })
-export class pagesModule {}
+export class PagesModule {}

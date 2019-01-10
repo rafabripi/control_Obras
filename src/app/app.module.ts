@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 // RUTAS
 import { appRoutingProviders, routing } from './app.routing';
 
@@ -11,28 +10,24 @@ import { appRoutingProviders, routing } from './app.routing';
 import { ObrasService } from './services/obras.service';
 
 // MODULOS
-import { pagesModule } from './pages/pages.module';
+import { PagesModule } from './pages/pages.module';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { ObrasComponent } from './components/obras/obras.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    ObrasComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    routing,
     HttpClientModule,
-    pagesModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
-  exports: [
+    ReactiveFormsModule,
+    routing,
+    PagesModule
   ],
   providers: [
     appRoutingProviders,

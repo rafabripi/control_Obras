@@ -6,67 +6,75 @@
     </p>
   </div>
 
-  <div class="progress">
-    <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-  </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width': avance + '%'}"  [attr.aria-valuenow]="avance['avance']" aria-valuemin="0" aria-valuemax="100">{{avance['avance']}}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
   <table class="table animated fadeIn fast"> 
     <tbody>
         <tr>
             <td>Clave de obra</td>
-            <th scope="row">{{obra.clave_municipal}}</th>
+            <th scope="row">{{obra['clave_municipal']}}</th>
         </tr>
         <tr>
             <td>Nombre de la obra</td>
-            <th>{{obra.nombre_obra}}</th>
+            <th>{{obra['nombre_obra']}}</th>
         </tr>
         <tr>
             <td>Localidad</td>
-            <th>{{obra.localidad}}</th>
+            <th>{{obra['localidad']}}</th>
         </tr>
         <tr>
             <td>Meta M2</td>
-            <th>{{obra.meta}}</th>
+            <th>{{obra['meta']}}</th>
         </tr>
         <tr>
             <td>Beneficiados directos</td>
-            <th>{{obra.beneficiarios_directos}}</th>
+            <th>{{obra['beneficiarios_directos']}}</th>
         </tr>
         <tr>
             <td>Direccion responsable</td>
-            <th>{{obra.direccion_responsable}}</th>
+            <th>{{obra['direccion_responsable']}}</th>
         </tr>
         <tr>
             <td>Numero de contrato</td>
-            <th>{{obra.numero_contrato}}</th>
+            <th>{{obra['numero_contrato']}}</th>
         </tr>
         <tr>
             <td>Fecha de contrato</td>
-            <th>{{obra.fecha_contrato | date: 'dd/MM/y' }}</th>
+            <th>{{obra['fecha_contrato'] | date: 'dd/MM/y' }}</th>
         </tr>
         <tr>
             <td>Supervisor</td>
-            <th>{{obra.supervisor}}</th>
+            <th>{{obra['supervisor']}}</th>
         </tr>
         <tr>
             <td>Tipo de ejecucion</td>
-            <th>{{obra.tipo_ejecucion}}</th>
+            <th>{{obra['tipo_ejecucion']}}</th>
         </tr>
         <tr>
             <td>Programa</td>
-            <th>{{obra.programa}}</th>
+            <th>{{obra['programa']}}</th>
         </tr>
         <tr>
             <td>Localidad</td>
-            <th>{{obra.localidad}}</th>
+            <th>{{obra['localidad']}}</th>
         </tr>
         <tr>
             <td>Inversion aprobada</td>
-            <th>{{obra.inversion_aprobada | currency }}</th>
+            <th>{{obra['inversion_aprobada'] | currency }}</th>
         </tr>
         <tr>
             <td>Contratista</td>
-            <th>{{obra.contratista}}</th>
+            <th>{{obra['contratista']}}</th>
         </tr>
         <tr>
             <td>Estado de la obra</td>
@@ -76,7 +84,7 @@
                 'table-warning': obra.estado == 'EN PROCESO',
                 'list-group-item-light': obra.estado == 'A CANCELAR'
               }"
-            >{{obra.estado}}</th>
+            >{{obra['estado']}}</th>
         </tr>
     </tbody>
   </table>

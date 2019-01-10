@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 // imports para componentes creados
 import { PagesComponent } from './pages/pages.component';
 import { LoginComponent } from './login/login.component';
-
 import { ErrorComponent } from './shared/error/error.component';
 
 // array con las rutas
