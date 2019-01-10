@@ -1,23 +1,28 @@
-<div style="text-align:center">
-    <h1>
-      {{ title }}
-    </h1>
-    <img width="300" alt="Angular Logo" src="../../../assets/logo_large.png">
+<section class="container" id="global">
+  <!--Content-->
+  <div style="text-align:center">
+    <h1>{{ title }}</h1>
+    <img width="300" alt="Angular Logo" src="../../../assets/logo_large.png" />
     <h2>Bienvenido</h2>
 
+    <form action="#" #formUsuario="ngForm" (ngSubmit)="onSubmit(formUsuario)">
+      <label for="usuario">Usuario</label><br />
+      <input type="text" name="usuario" required />
+      <!-- <span>Nombre de usuario requerido</span> -->
 
-<form action="#" #formUsuario="ngForm" (ngSubmit)="onSubmit(formUsuario)" >
-    <label for="usuario">Usuario</label><br>
-    <input type="text" name="usuario"  required>
-    <!-- <span>Nombre de usuario requerido</span> -->
+      <br />
+      <label for="pass">Contraseña</label><br />
+      <input type="password" name="pass" required />
+      <!-- <span>Contraseña requerida</span> -->
 
-    <br>
-    <label for="pass">Contraseña</label><br>
-    <input type="password" name="pass" required>
-    <!-- <span>Contraseña requerida</span> -->
+      <br /><br />
+      <input type="submit" value="Entrar" />
+    </form>
+  </div>
+</section>
 
-    <br><br>
-    <input type="submit" value="Entrar">
-  </form>
-
-</div>
+<footer>
+  <a id="credito" href="https://www.freepik.es/fotos-vectores-gratis/fondo"
+    >Foto de fondo creado por freepik - www.freepik.es</a
+  >
+</footer>

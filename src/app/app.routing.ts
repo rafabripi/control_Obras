@@ -2,22 +2,16 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // imports para componentes creados
+import { PagesComponent } from './pages/pages.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ListaObrasComponent } from './components/lista-obras/lista-obras.component';
-import { ObraInfoComponent } from './components/obra-info/obra-info.component';
-import { AddObraComponent } from './components/add-obra/add-obra.component';
-import { ErrorComponent } from './shared/error/error.component';
 
+import { ErrorComponent } from './shared/error/error.component';
 
 // array con las rutas
 const APP_ROUTES: Routes = [
-    {path: '', pathMatch: 'full', redirectTo: 'login'},
+    {path: '', component: PagesComponent},
+    // para redireccionar {path: '', pathMatch: 'full', redirectTo: 'login'},
     {path: 'login', component: LoginComponent},
-    {path: 'home', component: HomeComponent},
-    {path: 'obrasList', component: ListaObrasComponent},
-    {path: 'obrasInfo/:id', component: ObraInfoComponent},
-    {path: 'addObra', component: AddObraComponent},
     {path: '**', component: ErrorComponent}
 ];
 
