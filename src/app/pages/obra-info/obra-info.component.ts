@@ -22,7 +22,7 @@ export class ObraInfoComponent implements OnInit {
       this.obra = [];
       this.avance = [];
       this.activatedRoute.params.subscribe( params => {
-        this.idObra = params['id'];
+      this.idObra = params['id'];
     });
   }
 
@@ -30,7 +30,7 @@ export class ObraInfoComponent implements OnInit {
     this._obrasService.getObra(this.idObra)
       .subscribe(data => this.obra = data);
 
-    this._avanceService.getAvance('5c1d034950b2eb1680fb76e8')
+    this._avanceService.getAvance(this.idObra)
         .subscribe(arg => this.avance = arg);
   }
 }

@@ -19,6 +19,6 @@ export class AvanceService {
 
   getAvance(id: string): any {
     return this.http.get(`http://localhost:3900/avance/getAvance/${id}`, httpOptions)
-                     .pipe(map(data => data['avanceDB']));
+                     .pipe(map(data => data['avanceDB'][0]));
   }
 }
