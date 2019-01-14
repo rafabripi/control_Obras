@@ -1,0 +1,49 @@
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+</div>
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm" ngNativevalidate>
+  <label for="usuario">Usuario</label><br />
+  <input  formControlName="user" 
+          name="user" 
+          type="text" 
+          required />
+  <br />
+
+  <label for="nombre">Nombre</label><br />
+  <input formControlName="nombre"
+         name="nombre" 
+         type="text" 
+         required />
+  <br />
+
+  <label for="apellidos">Apellidos</label><br />
+  <input formControlName="apellidos"
+         name="apellidos" 
+         type="text" 
+         required />
+  <br />
+  
+  <label for="pass">Contraseña</label><br />
+  <input  formControlName="pass" 
+          name="pass" 
+          type="password" 
+          required />
+  <br />
+
+  <label for="correo">Correo</label><br />
+  <input formControlName="correo"
+         name="correo" 
+         type="email" 
+         required />
+  <br />
+  
+  <label for="pass">Tipo</label><br />
+  <input  formControlName="tipo"
+          name="tipo" 
+          type="select" 
+          required />
+  <br />
+
+  <input type="submit" value="Entrar" />
+</form>

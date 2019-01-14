@@ -12,6 +12,7 @@ import { PagesComponent } from './pages.component';
 import { ListaObrasComponent } from '../pages/lista-obras/lista-obras.component';
 import { ObraInfoComponent } from '../pages/obra-info/obra-info.component';
 import { AddObraComponent } from '../pages/add-obra/add-obra.component';
+import { NuevoUsuarioComponent } from './nuevo-usuario/nuevo-usuario.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { AddObraComponent } from '../pages/add-obra/add-obra.component';
         HomeComponent,
         ListaObrasComponent,
         ObraInfoComponent,
-        AddObraComponent
+        AddObraComponent,
+        NuevoUsuarioComponent
     ],
     imports: [
         CommonModule,
