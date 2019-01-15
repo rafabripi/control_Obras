@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import swal from 'sweetalert';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-nuevo-usuario',
@@ -27,7 +28,7 @@ export class NuevoUsuarioComponent implements OnInit {
       tipo: new FormControl(null, [Validators.required])
     });
 
-    // relleno para pruebas retirar estas lineas al terminar 
+    // relleno para pruebas retirar estas lineas al terminar
     this.formulario.setValue({
       user: 'fulano1',
       nombre: 'Fulano',
@@ -36,11 +37,27 @@ export class NuevoUsuarioComponent implements OnInit {
       correo: 'some@test.com',
       tipo: 'Normal'
     });
-    //------------------------------------------------------
+    // ------------------------------------------------------
   }
 
   onSubmit() {
-    console.log(this.formulario.value);
-    swal("Good job!", "You clicked the button!", "success");
+    const DATA_FORM = this.formulario.value;
+
+    const dataUsuario = new Usuario(
+      DATA_FORM.user,
+      DATA_FORM.pass,
+      DATA_FORM.tipo,
+      DATA_FORM.nombre,
+      DATA_FORM.apellidos,
+      DATA_FORM.correo,
+      DATA_FORM.estado,
+      '5c06a104597ea61958828642'
+    );
+    console.log(dataUsuario);
+    this._usuarioService.saveUser(dataUsuario)
+                        .subscribe( res => {
+                          console.log(res);
+                        });
+    swal('Good job!', 'Usuario guardado con exito!', 'success');
   }
 }

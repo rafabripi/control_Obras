@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ObrasService, Obra } from '../../services/obras.service';
+import { ObrasService } from '../../services/obras.service';
+import { Obra } from 'src/app/models/obra.model';
 
 @Component({
   selector: 'app-lista-obras',
