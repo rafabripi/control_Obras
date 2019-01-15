@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import swal from 'sweetalert';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-nuevo-usuario',
@@ -10,7 +12,7 @@ export class NuevoUsuarioComponent implements OnInit {
   title: string;
   formulario: FormGroup;
 
-  constructor() {
+  constructor(private _usuarioService: UsuarioService) {
     this.title = 'Registrar un nuevo usuario';
   }
 
@@ -24,10 +26,21 @@ export class NuevoUsuarioComponent implements OnInit {
       correo: new FormControl(null, [Validators.email]),
       tipo: new FormControl(null, [Validators.required])
     });
+
+    // relleno para pruebas retirar estas lineas al terminar 
+    this.formulario.setValue({
+      user: 'fulano1',
+      nombre: 'Fulano',
+      apellidos: 'deTal',
+      pass: '123456',
+      correo: 'some@test.com',
+      tipo: 'Normal'
+    });
+    //------------------------------------------------------
   }
 
   onSubmit() {
     console.log(this.formulario.value);
-    
+    swal("Good job!", "You clicked the button!", "success");
   }
 }

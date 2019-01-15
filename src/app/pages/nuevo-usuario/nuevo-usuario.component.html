@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
 </div>
 
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm" ngNativevalidate>
+<form ngNativeValidate [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm" >
   <label for="usuario">Usuario</label><br />
   <input  formControlName="user" 
           name="user" 
@@ -13,15 +13,13 @@
   <label for="nombre">Nombre</label><br />
   <input formControlName="nombre"
          name="nombre" 
-         type="text" 
-         required />
+         type="text"/>
   <br />
 
   <label for="apellidos">Apellidos</label><br />
   <input formControlName="apellidos"
          name="apellidos" 
-         type="text" 
-         required />
+         type="text"/>
   <br />
   
   <label for="pass">Contraseña</label><br />
@@ -34,11 +32,10 @@
   <label for="correo">Correo</label><br />
   <input formControlName="correo"
          name="correo" 
-         type="email" 
-         required />
+         type="email"/>
   <br />
   
-  <label for="pass">Tipo</label><br />
+  <label for="tipo">Tipo</label><br />
   <input  formControlName="tipo"
           name="tipo" 
           type="select" 
