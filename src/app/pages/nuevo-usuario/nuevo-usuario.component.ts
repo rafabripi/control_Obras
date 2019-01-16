@@ -50,14 +50,14 @@ export class NuevoUsuarioComponent implements OnInit {
       DATA_FORM.nombre,
       DATA_FORM.apellidos,
       DATA_FORM.correo,
-      DATA_FORM.estado,
-      '5c06a104597ea61958828642'
+      DATA_FORM.estado
     );
-    console.log(dataUsuario);
+    // En formulario.errors tenemos los errores de validacion del frontend
+    // console.log(this.formulario);
     this._usuarioService.saveUser(dataUsuario)
                         .subscribe( res => {
-                          console.log(res);
+                          
+                          this.formulario.reset();
                         });
-    swal('Good job!', 'Usuario guardado con exito!', 'success');
   }
 }
