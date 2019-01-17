@@ -5,7 +5,7 @@
     <img width="300" alt="Angular Logo" src="../../../assets/logo_large.png" />
     <h2>Bienvenido</h2>
 
-    <form ngNativeValidate [formGroup]="formLogin" (ngSubmit)="onSubmit(formLogin)" action="#" #formUsuario="ngForm" >
+    <form ngNativeValidate [formGroup]="formLogin" (ngSubmit)="login(formLogin)" action="#" #formUsuario="ngForm" >
       <label for="usuario">Usuario</label><br />
       <input  formControlName="usuario"
               name="usuario" 

@@ -15,6 +15,8 @@ import { PagesModule } from './pages/pages.module';
 // COMPONENTES
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+// Guards
+import { LoginGuard } from './services/guards/login.guard';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     appRoutingProviders,
-    ObrasService
+    ObrasService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })
