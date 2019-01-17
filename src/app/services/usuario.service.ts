@@ -13,13 +13,22 @@ import { httpOptions, URL_SERVICES } from '../config/config';
 })
 export class UsuarioService {
   constructor(private http: HttpClient) {}
+  
+  login(usuario: any, recordar: boolean = false) {
+    return this.http.post(URL_SERVICES + '/usuario/login', usuario, httpOptions)
+        .map( (resp: any) => {
+          console.log(resp, 'Hallo! ');
+          
+        });
+  }
 
   saveUser(user: Usuario) {
-    return this.http.post(URL_SERVICES + '/usuario/saveUser', user, httpOptions)
+    return this.http.post(URL_SERVICES + '/usuario/saveUser', user)
       .map( (resp: any) => {
         // mensaje de exito clase 153 y 154
         swal('Usuario guardado!', user.user.toString(), 'success');
         return resp.usuario;
       });
   }
+
 }
