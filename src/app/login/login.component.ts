@@ -39,6 +39,5 @@ export class LoginComponent implements OnInit {
     const usuario = new Usuario(data.usuario, data.pass);
     this._usuarioService.login(usuario, data.recordar)
                         .subscribe( response => this.router.navigate(['/home']));
-    form.reset();
   }
 }
