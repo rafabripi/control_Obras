@@ -21,7 +21,7 @@ import { LoginGuard } from './services/guards/login.guard';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
