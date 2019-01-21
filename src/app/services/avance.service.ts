@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { URL_SERVICES } from '../config/config';
-
-const httpOptions = {
-  // poner el token por medio de un interceptor http://blog.enriqueoriol.com/2017/11/httpclient-vs-http-angular.html
-  headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InRpcG8iOiJBZG1pbmlzdHJhZG9yIiwiZXN0YWRvIjp0cnVlLCJfaWQiOiI1YzEzMDM5NGYzM2Q2MzA5ZTRkMTVkNDYiLCJ1c2VyIjoicmJyaWJpZXgiLCJub21icmUiOiJSYWZhZWwiLCJhcGVsbGlkb3MiOiJCcmliaWVzY2EiLCJfX3YiOjB9LCJpYXQiOjE1NDUzNDk1ODgsImV4cCI6MTU0Nzk0MTU4OH0.pyF4RQUSgqHJCxa4OktQKPfTKcig9kLDbG-NMDR7rxc'
-  })
-};
+// Servicios
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +11,17 @@ const httpOptions = {
 export class AvanceService {
   httpOptions: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private _usuarioService: UsuarioService) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'token': this._usuarioService.token
+      })
+    };
+  }
 
   getAvance(id: string): any {
-    return this.http.get(URL_SERVICES + `/avance/getAvance/${id}`, httpOptions)
-                     .pipe(map(data => data['avanceDB'][0]));
+    return this.http.get(URL_SERVICES + `/avance/getAvance/${id}`, this.httpOptions)
+      .pipe(map(data => data['avanceDB'][0]));
   }
 }

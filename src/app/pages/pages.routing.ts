@@ -16,9 +16,9 @@ const pagesRoutes: Routes = [
     canActivate: [LoginGuard],
     children: [
         { path: 'home', component: HomeComponent },
-        {path: 'obrasList', component: ListaObrasComponent},
-        {path: 'obrasInfo/:id', component: ObraInfoComponent},
-        {path: 'addObra', component: AddObraComponent},
+        { path: 'obrasList', component: ListaObrasComponent},
+        { path: 'obrasInfo/:id', component: ObraInfoComponent},
+        { path: 'addObra', component: AddObraComponent},
         { path: 'nuevoUsuario', component: NuevoUsuarioComponent},
         { path: '', pathMatch: 'full', redirectTo: '/home'}
         ]

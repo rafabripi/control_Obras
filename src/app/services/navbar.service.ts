@@ -8,8 +8,10 @@ export class NavbarService {
 
   constructor() {
     this.menu = [
-        {titulo: 'Crear nuevo proyecto', url: '/addObra'},
-        {titulo: 'Lista de obras', url: '/obrasList'}
+        {titulo: 'Inicio', url: '/home'},
+        {titulo: 'Lista de obras', url: '/obrasList'},
+        {titulo: 'Nuevo proyecto', url: '/addObra'},
+        {titulo: 'Nuevo usuario', url: '/nuevoUsuario'}
       ];
    }
 }

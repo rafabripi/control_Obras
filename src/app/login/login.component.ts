@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private _usuarioService: UsuarioService, private router: Router) {
     this.title = 'Gestion de obras publicas';
+    console.log(JSON.parse( _usuarioService.usuario ));
+    console.log(_usuarioService.token);
   }
 
   ngOnInit() {
