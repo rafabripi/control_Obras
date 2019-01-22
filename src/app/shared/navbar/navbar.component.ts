@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   constructor( public _navbarService: NavbarService, public _usuarioService: UsuarioService) {}
 
   ngOnInit() {
-    let user = JSON.parse( _usuarioService.Usuario );
+    let user = JSON.parse( this._usuarioService.usuario );
     let nameUser = user['nombre'];
     this.usuario = nameUser;
   }

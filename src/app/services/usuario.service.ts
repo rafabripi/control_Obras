@@ -7,7 +7,7 @@ import { Usuario } from '../models/usuario.model';
 // Importacion de observables
 import 'rxjs/add/operator/map';
 // Importacion de archivo de config global
-import {  URL_SERVICES } from '../config/config';
+import { URL_SERVICES } from '../config/config';
 // --------------------------------------------------------------
 
 @Injectable({

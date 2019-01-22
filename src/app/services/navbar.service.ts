@@ -11,7 +11,8 @@ export class NavbarService {
         {titulo: 'Inicio', url: '/home'},
         {titulo: 'Lista de obras', url: '/obrasList'},
         {titulo: 'Nuevo proyecto', url: '/addObra'},
-        {titulo: 'Nuevo usuario', url: '/nuevoUsuario'}
+        {titulo: 'Nuevo usuario', url: '/nuevoUsuario'},
+        {titulo: 'Fotos', url: '/fotos'}
       ];
    }
 }

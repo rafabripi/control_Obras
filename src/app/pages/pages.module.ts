@@ -15,6 +15,8 @@ import { ListaObrasComponent } from '../pages/lista-obras/lista-obras.component'
 import { ObraInfoComponent } from '../pages/obra-info/obra-info.component';
 import { AddObraComponent } from '../pages/add-obra/add-obra.component';
 import { NuevoUsuarioComponent } from './nuevo-usuario/nuevo-usuario.component';
+import { FotosComponent } from '../components/fotos/fotos.component';
+
 // Servicios
 import { UsuarioService } from '../services/usuario.service';
 import { SubirArchivoService } from '../services/subir-archivo.service';
@@ -27,7 +29,8 @@ import { ObrasService } from '../services/obras.service';
         ListaObrasComponent,
         ObraInfoComponent,
         AddObraComponent,
-        NuevoUsuarioComponent
+        NuevoUsuarioComponent,
+        FotosComponent
     ],
     imports: [
         CommonModule,
