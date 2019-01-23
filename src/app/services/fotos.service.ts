@@ -31,5 +31,3 @@ export class FotosService {
       .pipe(map(datas => datas['result'] ));
   }
 }
-
-
