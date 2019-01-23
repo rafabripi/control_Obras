@@ -25,9 +25,17 @@ export class FotosService {
   getImgs(data: any) {
     let checklist = data.checklist;
     let obraId = data.obraId;
-    let params = new HttpParams().set('checklist', checklist).set('obraId', obraId);
-
-    return this.http.get(URL_SERVICES + '/img/getImgs', {headers: this.httpOptions.headers, params: params})
+    // metodo para mandar data por medio de HttpParams
+    // let params = new HttpParams().set('checklist', checklist).set('obraId', obraId);
+    // return this.http.get(URL_SERVICES + '/img/getImgs', {headers: this.httpOptions.headers, params: params})
+    return this.http.get(URL_SERVICES + `/img/getImgs/?checklist=${checklist}&obraId=${obraId}`, this.httpOptions)
       .pipe(map(datas => datas['result'] ));
+  }
+
+  getImg(nombre: any) {
+    return this.http.get(URL_SERVICES + `/img/getImg/?nombre=${nombre}`, this.httpOptions)
+      .pipe( map( data => {
+        console.log( typeof(data), 'tipo de data regresada.....');
+      } ) );
   }
 }
