@@ -79,4 +79,13 @@ export class UsuarioService {
       });
   }
 
+  getuser(id: string) {
+    return this.http.get(URL_SERVICES + `/usuario/getUser/${id}`, this.httpOptions)
+      .map( (res: any) => res.usuario);
+  }
+
+  getUsers() {
+    return this.http.get( URL_SERVICES + '/usuario/getusers', this.httpOptions)
+      .map((res: any) => res.usuarios);
+  }
 }

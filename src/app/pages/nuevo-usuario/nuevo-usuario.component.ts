@@ -28,14 +28,14 @@ export class NuevoUsuarioComponent implements OnInit {
     });
 
     // relleno para pruebas retirar estas lineas al terminar
-    this.formulario.setValue({
-      user: 'fulano1',
-      nombre: 'Fulano',
-      apellidos: 'deTal',
-      pass: '123456',
-      correo: 'some@test.com',
-      tipo: 'Normal'
-    });
+    // this.formulario.setValue({
+    //   user: 'fulano1',
+    //   nombre: 'Fulano',
+    //   apellidos: 'deTal',
+    //   pass: '123456',
+    //   correo: 'some@test.com',
+    //   tipo: 'Normal'
+    // });
     // ------------------------------------------------------
   }
 
