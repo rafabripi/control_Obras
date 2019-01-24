@@ -9,9 +9,10 @@ export class ImagenPipe implements PipeTransform {
   transform(nombre: string): any {
     let url = URL_SERVICES + `/img/getImg/?nombre=${nombre}`;
     if (!nombre) {
-      return url = 'retornar_url_no_valida_para_regresar_img_default';
+      return url = URL_SERVICES + '/img/getImg/?nombre=retornar_url_no_valida_para_regresar_img_default';
     }
     return url;
+    
   }
 
 }

@@ -32,10 +32,10 @@ export class FotosService {
       .pipe(map(datas => datas['result'] ));
   }
 
-  getImg(nombre: any) {
-    return this.http.get(URL_SERVICES + `/img/getImg/?nombre=${nombre}`, this.httpOptions)
-      .pipe( map( data => {
-        console.log( typeof(data), 'tipo de data regresada.....');
-      } ) );
-  }
+  // getImg(nombre: any) {
+  //   return this.http.get(URL_SERVICES + `/img/getImg/?nombre=${nombre}`, this.httpOptions)
+  //     .pipe( map( data => {
+  //       console.log( typeof(data), 'tipo de data regresada.....');
+  //     } ) );
+  // }
 }

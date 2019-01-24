@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FotosService } from '../../services/fotos.service';
 import { Img } from '../../models/img.model';
-import { URL_SERVICES } from '../../config/config';
+import { ObrasService } from '../../services/obras.service';
+import { Obra } from '../../models/obra.model';
 
 @Component({
   selector: 'app-fotos',
@@ -13,11 +14,13 @@ export class FotosComponent implements OnInit {
   obraId: any;
   fotos: Img[];
   fotoItem: any;
+  obraData: Obra[];
 
-  constructor(private _fotosService: FotosService) {
-    this.checklist = 'estimacion-2';
+  constructor(private _fotosService: FotosService, private _obraService: ObrasService) {
+    this.checklist = 'anticipo';
     this.obraId = '5c1c2be74be5a91a30e25d72';
     this.fotos = [];
+    this.obraData = [];
   }
 
   ngOnInit() {
@@ -26,16 +29,10 @@ export class FotosComponent implements OnInit {
       .subscribe(resp => {
         this.fotos = resp;
         this.fotoItem = this.fotos[0]['nombre'];
-        // console.log(fotoItem, 'hallooooooooooooooooooooooooooooooooooooooooooooooo');
-        // hasta aqui el arreglo de fotos se guarda en this.fotos
-        // en las siguientes lineas se hara un prueba de imprimir una foto
       });
-
-      // this._fotosService.getImg(fotoItem)
-      // .subscribe(respFoto => {
-      //     this.foto = respFoto;
-      //   });
-
+    
+    this._obraService.getObra(this.obraId)
+      .subscribe(arg => this.obraData = arg);
   }
 
 }
