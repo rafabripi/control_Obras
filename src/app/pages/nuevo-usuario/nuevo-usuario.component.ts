@@ -55,7 +55,6 @@ export class NuevoUsuarioComponent implements OnInit {
     // console.log(this.formulario);
     this._usuarioService.saveUser(dataUsuario)
                         .subscribe( res => {
-                          
                           this.formulario.reset();
                         });
   }

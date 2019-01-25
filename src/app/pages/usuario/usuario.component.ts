@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // Servicios
 import { UsuarioService } from 'src/app/services/usuario.service';
 // Modelos
@@ -17,7 +17,11 @@ export class UsuarioComponent implements OnInit {
   usuario: Usuario[];
   usuarioId: string;
 
-  constructor(private _usuarioService: UsuarioService, private activatedRoute: ActivatedRoute) {
+  constructor(
+      private _usuarioService: UsuarioService, 
+      private activatedRoute: ActivatedRoute,
+      private router: Router  
+    ) {
     this.title = 'Editar usuario';
     this.usuario = [];
     this.activatedRoute.params.subscribe(params => {
@@ -43,12 +47,31 @@ export class UsuarioComponent implements OnInit {
     // Validacion del formulario
     this.formulario = new FormGroup({
       // FormControl('valorDefault', [Validators.validadoresAngular, Validators.validadoresAngular])
-      user: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      user: new FormControl({value: null, disabled: true}, [ Validators.minLength(3)]),
       nombre: new FormControl(null, [Validators.minLength(3)]),
       apellidos: new FormControl(null, [Validators.minLength(3)]),
-      pass: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      pass: new FormControl(null, [ Validators.minLength(4)]),
       correo: new FormControl(null, [Validators.email]),
-      tipo: new FormControl(null, [Validators.required])
+      tipo: new FormControl(null)
     });
+  }
+
+  onSubmit() {
+    const DATA_FORM = this.formulario.value;
+
+    const dataUsuario = new Usuario(
+      DATA_FORM.user,
+      DATA_FORM.pass,
+      DATA_FORM.tipo,
+      DATA_FORM.nombre,
+      DATA_FORM.apellidos,
+      DATA_FORM.correo,
+      DATA_FORM.estado
+    );
+
+    this._usuarioService.updateUser(this.usuarioId, dataUsuario)
+                        .subscribe( res => {
+                          this.router.navigate(['/usuariosList'])
+                        });
   }
 }

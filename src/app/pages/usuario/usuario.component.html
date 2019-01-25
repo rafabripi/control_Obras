@@ -1,15 +1,20 @@
 <div class="animated fadeIn fast">
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-dark" [routerLink]="['/usuariosList']" >Lista</button>
+                <!-- <button type="button" class="btn btn-dark" [routerLink]="['/nuevoUsuario']">Nuevo</button> -->
+                <!-- <button type="button" class="btn btn-dark">Editar</button> -->
+        </div>
     <div class="container">
       <h2> Pagina de descripcion de usuario </h2>
       <p class="text-justify w-75">
         obra-info works! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam est aspernatur laudantium itaque neque nemo velit voluptate. Accusamus animi exercitationem laboriosam, unde eaque est corporis ex dicta et tempore explicabo.
       </p>
     </div>
-    <form ngNativeValidate [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm" >
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm" >
         <label for="usuario">Usuario</label><br />
         <input  formControlName="user" 
                 name="user" 
-                type="text" 
+                type="text"
                 required />
         <br />
       
@@ -23,13 +28,6 @@
         <input formControlName="apellidos"
                name="apellidos" 
                type="text"/>
-        <br />
-        
-        <label for="pass">Contraseña</label><br />
-        <input  formControlName="pass" 
-                name="pass" 
-                type="password" 
-                required />
         <br />
       
         <label for="correo">Correo</label><br />

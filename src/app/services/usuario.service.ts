@@ -88,4 +88,8 @@ export class UsuarioService {
     return this.http.get( URL_SERVICES + '/usuario/getusers', this.httpOptions)
       .map((res: any) => res.usuarios);
   }
+
+  updateUser(id: string, data: Usuario) {
+    return this.http.put(URL_SERVICES + `/usuario/updateUser/${id}`, data, this.httpOptions);
+  }
 }
