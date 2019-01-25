@@ -18,9 +18,9 @@ export class UsuarioComponent implements OnInit {
   usuarioId: string;
 
   constructor(
-      private _usuarioService: UsuarioService, 
+      private _usuarioService: UsuarioService,
       private activatedRoute: ActivatedRoute,
-      private router: Router  
+      private router: Router
     ) {
     this.title = 'Editar usuario';
     this.usuario = [];
@@ -41,7 +41,8 @@ export class UsuarioComponent implements OnInit {
           apellidos: (!(this.usuario['apellidos'])) ? '' : this.usuario['apellidos'],
           pass: (!(this.usuario['pass'])) ? '' : this.usuario['pass'],
           correo: (!(this.usuario['correo'])) ? '' : this.usuario['correo'],
-          tipo: (!(this.usuario['tipo'])) ? '' : this.usuario['tipo']
+          tipo: (!(this.usuario['tipo'])) ? '' : this.usuario['tipo'],
+          estado: (!(this.usuario['estado'])) ? '' : this.usuario['estado'],
         });
       });
     // Validacion del formulario
@@ -52,7 +53,8 @@ export class UsuarioComponent implements OnInit {
       apellidos: new FormControl(null, [Validators.minLength(3)]),
       pass: new FormControl(null, [ Validators.minLength(4)]),
       correo: new FormControl(null, [Validators.email]),
-      tipo: new FormControl(null)
+      tipo: new FormControl(null),
+      estado: new FormControl(null)
     });
   }
 
