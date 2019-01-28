@@ -30,6 +30,11 @@ export class ObrasService {
   }
 
   saveObra(obraToSave: Obra) {
-    return this.http.post( URL_SERVICES + '/obra/saveObra', obraToSave, this.httpOptions);
+    return this.http.post( URL_SERVICES + '/obra/saveObra', obraToSave, this.httpOptions)
+      .map( (resp: any) => {
+        swal('Obra guardada!', obraToSave.nombre_obra.toString(), 'success');
+        return resp.nombre_obra;
+      } );
   }
 }
+

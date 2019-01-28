@@ -85,7 +85,7 @@ export class UsuarioService {
   }
 
   getUsers() {
-    return this.http.get( URL_SERVICES + '/usuario/getusers', this.httpOptions)
+    return this.http.get(URL_SERVICES + `/usuario/getUsers`, this.httpOptions)
       .map((res: any) => res.usuarios);
   }
 

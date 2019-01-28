@@ -33,6 +33,8 @@ export class ObraInfoComponent implements OnInit {
       .subscribe(data => this.obra = data);
 
     this._avanceService.getAvance(this.idObra)
-        .subscribe(arg => this.avance = arg);
+        .subscribe(arg => {
+          ( arg ) ? this.avance = arg : this.avance['avance'] = 0;
+        });
   }
 }
