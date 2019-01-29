@@ -3,6 +3,25 @@
   <p class="text-justify">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit delectus eaque reiciendis laboriosam! Dolore dicta quod nesciunt, tempora quae iste debitis sequi doloremque quibusdam rerum labore alias, cumque nulla praesentium.
   </p>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <input #input (keyup)="buscarObra( $event )" type="text" placeholder="Buscar una obra" class="form-control">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="cargando">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <strong>Cargando...</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--Tabla de bootstap - con redireccion de angular - clases de estilos bootstrap
   - recorrido por la lista de obras-->
   <table class="table animated fadeIn fast">

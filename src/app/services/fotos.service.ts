@@ -31,14 +31,14 @@ export class FotosService {
     return this.http.get(URL_SERVICES + `/img/getImgs/?checklist=${checklist}&obraId=${obraId}`, this.httpOptions)
       .pipe(map(datas => datas['result'] ));
   }
-  
-  loadImg(imagen: File, data: any){
+
+  loadImg(imagen: File, data: any) {
     return new Promise ( (resolve, reject) => {
       let formData = new FormData();
       let xhr = new XMLHttpRequest();
-  
+
       formData.append('archivo', imagen, imagen.name);
-  
+
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
@@ -49,11 +49,12 @@ export class FotosService {
             reject(xhr.response);
           }
         }
-      }
+      };
 
       let url = URL_SERVICES + '/img/saveImg';
 
-      xhr.open('PUT', url)
+      xhr.open('PUT', url, true);
+      xhr.send(formData);
     });
   }
   // getImg(nombre: any) {

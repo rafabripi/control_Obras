@@ -5,9 +5,12 @@
       obra-info works! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam est aspernatur laudantium itaque neque nemo velit voluptate. Accusamus animi exercitationem laboriosam, unde eaque est corporis ex dicta et tempore explicabo.
     </p>
   </div>
-  <div [routerLink]="['/fotos']" routerLinkActive="router-link-active" >
-      <button>Fotos</button>
-  </div>
+
+    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-dark" [routerLink]="['/fotos']" >Fotos</button>
+        <button type="button" class="btn btn-dark" [routerLink]="['/']">Subir fotos</button>
+        <button *ngIf="UserType === 'Desarrollador'" type="button" class="btn btn-dark">Hola</button>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -19,7 +22,6 @@
             </div>
         </div>
     </div>
-
   <table class="table animated fadeIn fast"> 
     <tbody>
         <tr>

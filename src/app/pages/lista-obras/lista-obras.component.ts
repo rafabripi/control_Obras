@@ -9,17 +9,24 @@ import { Obra } from 'src/app/models/obra.model';
 })
 export class ListaObrasComponent implements OnInit {
   obras: Obra[];
+  cargando: boolean;
 
   constructor(private _obrasService: ObrasService) {
     this.obras = [];
+    this.cargando = true;
   }
 
   ngOnInit() {
     this._obrasService.getObras()
       .subscribe(data => {
-      this.obras = data;
+        this.cargando = false;
+        this.obras = data;
     }, (err) => {
       console.error(err, 'Error');
     });
+  }
+
+  buscarObra(termino: string) {
+    console.log(termino['key'] );
   }
 }

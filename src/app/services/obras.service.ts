@@ -36,5 +36,8 @@ export class ObrasService {
         return resp.nombre_obra;
       } );
   }
+  buscarObra(termino: string) {
+
+  }
 }
 

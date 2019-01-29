@@ -17,7 +17,7 @@ export class FotosComponent implements OnInit {
   obraData: Obra[];
 
   constructor(private _fotosService: FotosService, private _obraService: ObrasService) {
-    // busqueda estatica, se necesita terminar esta carectistica 
+    // busqueda estatica, se necesita terminar esta carectistica
     this.checklist = 'anticipo';
     this.obraId = '5c1c2be74be5a91a30e25d72';
     this.fotos = [];

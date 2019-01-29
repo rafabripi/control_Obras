@@ -15,6 +15,7 @@ export class ObraInfoComponent implements OnInit {
   idObra: any;
   obra: Obra[];
   avance: any[];
+  UserType: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -23,6 +24,10 @@ export class ObraInfoComponent implements OnInit {
   ) {
       this.obra = [];
       this.avance = [];
+      // Para mostrar elemntos dependiendo del tipo de usuario
+      // usamos la propiedad UserType y le asignamos el tipo recogido del localStorage
+      // ahora en el html se muestra el boton "hola" solo a Desarrollador
+      this.UserType = JSON.parse( localStorage.getItem('usuario')).tipo;
       this.activatedRoute.params.subscribe( params => {
       this.idObra = params['id'];
     });

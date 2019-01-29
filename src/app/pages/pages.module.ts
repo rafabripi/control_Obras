@@ -19,7 +19,6 @@ import { FotosComponent } from '../components/fotos/fotos.component';
 
 // Servicios
 import { UsuarioService } from '../services/usuario.service';
-import { SubirArchivoService } from '../services/subir-archivo.service';
 import { ObrasService } from '../services/obras.service';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -49,7 +48,6 @@ import { UsuarioComponent } from './usuario/usuario.component';
     providers: [
         paguesRoutingProviders,
         UsuarioService,
-        SubirArchivoService,
         ObrasService
     ],
 })
