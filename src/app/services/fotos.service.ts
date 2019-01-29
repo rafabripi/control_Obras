@@ -31,7 +31,31 @@ export class FotosService {
     return this.http.get(URL_SERVICES + `/img/getImgs/?checklist=${checklist}&obraId=${obraId}`, this.httpOptions)
       .pipe(map(datas => datas['result'] ));
   }
+  
+  loadImg(imagen: File, data: any){
+    return new Promise ( (resolve, reject) => {
+      let formData = new FormData();
+      let xhr = new XMLHttpRequest();
+  
+      formData.append('archivo', imagen, imagen.name);
+  
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log('imagen subida');
+            resolve(xhr.response);
+          } else {
+            console.log('Fallo la subida');
+            reject(xhr.response);
+          }
+        }
+      }
 
+      let url = URL_SERVICES + '/img/saveImg';
+
+      xhr.open('PUT', url)
+    });
+  }
   // getImg(nombre: any) {
   //   return this.http.get(URL_SERVICES + `/img/getImg/?nombre=${nombre}`, this.httpOptions)
   //     .pipe( map( data => {
