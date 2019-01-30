@@ -17,6 +17,10 @@ export class ListaObrasComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cargarObras();
+  }
+
+  cargarObras () {
     this._obrasService.getObras()
       .subscribe(data => {
         this.cargando = false;
@@ -27,6 +31,17 @@ export class ListaObrasComponent implements OnInit {
   }
 
   buscarObra(termino: string) {
-    console.log(termino['key'] );
+    if (termino.length >= 2) {
+      if (termino.indexOf('/')) {
+        // https://kb.tableau.com/articles/issue/special-characters-in-url-parameters?lang=es-es
+        console.log( '%2f');
+      }
+      this._obrasService.buscarObra(termino)
+          .subscribe( data => {
+            this.obras = data;
+          });
+    } else {
+      this.cargarObras();
+    }
   }
 }

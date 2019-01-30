@@ -36,8 +36,11 @@ export class ObrasService {
         return resp.nombre_obra;
       } );
   }
-  buscarObra(termino: string) {
 
+  buscarObra(termino: string) {
+    return this.http.get( URL_SERVICES + `/obra/busqueda/${termino}`, this.httpOptions)
+      .map((resp: any) => {
+        return resp.obras;
+      });
   }
 }
-
