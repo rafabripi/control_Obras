@@ -45,7 +45,7 @@ export class AddObraComponent implements OnInit {
       estado: 'Aprovada pero sin inciar',
       meta: 'ALGUNA',
       beneficiarios_directos: 5,
-      direccion_responsable: 'Obras Publicas',
+      direccion_responsable: 'Desarrollo Social',
       numero_contrato: 'AD-COPFII01-01/19',
       fecha_contrato: '2018-01-28',
       supervisor: 'ALGUNO',
@@ -76,9 +76,6 @@ export class AddObraComponent implements OnInit {
       data_form.nota
     );
     this._obraService.saveObra(dataObra)
-      .subscribe( resp => {
-        console.log(resp);
-        this.formulario.reset();
-      });
+      .subscribe( resp => this.formulario.reset());
   }
 }

@@ -58,10 +58,10 @@
           class="form-control custom-select"
           formControlName="direccion_responsable"
         >
-            <option selected>Selecciona una dirección...</option>
-            <option value="1">Obras Publicas</option>
-            <option value="2">Urbanismo</option>
-            <option value="3">Desarrollo social</option>
+            <option selected>Selecciona una dirección</option>
+            <option value="Obras Publicas">Obras Publicas</option>
+            <option value="Urbanismo">Urbanismo</option>
+            <option value="Desarrollo social">Desarrollo social</option>
           </select>
     </div>
     
@@ -137,11 +137,14 @@
     
     <div class="form-group row">
         <label>Estado</label>
-        <select class="custom-select" id="inputGroupSelect01">
+        <select 
+          class="custom-select" 
+          id="inputGroupSelect01"
+          formControlName="estado">
           <option selected>Seleccione una opción</option>
-          <option value="1">Aprovada pero sin iniciar</option>
-          <option value="2">En proceso</option>
-          <option value="3">Terminada</option>
+          <option value="APROVADA PERO SIN INICIAR">Aprovada pero sin iniciar</option>
+          <option value="EN PROCESO">En proceso</option>
+          <option value="TERMINADA">Terminada</option>
         </select>
     </div>
 
