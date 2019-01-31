@@ -41,10 +41,15 @@
   <br />
   
   <label for="tipo">Tipo</label><br />
-  <input  formControlName="tipo"
-          name="tipo" 
-          type="select" 
-          required />
+  <select formControlName="tipo"
+          name="tipo"
+          id="tipo"
+          required>
+                <option value="Administrador">Administrador</option>
+                <option value="Supervisor">Supervisor obra</option>
+                <option value="Egresos">Jefe egresos</option>
+                <option value="Tesorero">Tesorero</option>
+  </select>
   <br />
 
   <input type="submit" value="Guardar" />
