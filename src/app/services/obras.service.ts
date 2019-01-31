@@ -38,9 +38,9 @@ export class ObrasService {
   }
 
   buscarObra(termino: string) {
-    return this.http.get( URL_SERVICES + `/obra/busqueda/${termino}`, this.httpOptions)
-      .map((resp: any) => {
-        return resp.obras;
-      });
+    // Codificar termino URL para busquedas con caracteres especiales
+    let terminoEncod = encodeURIComponent(termino);
+    return this.http.get(URL_SERVICES + `/obra/busqueda/${terminoEncod}`, this.httpOptions)
+      .map((resp: any) => resp.obras);
   }
 }
