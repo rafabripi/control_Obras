@@ -89,11 +89,12 @@ export class UsuarioService {
       .map((res: any) => res.usuarios);
   }
 
-  getUsersSupervisor() {
-    
-  }
-
   updateUser(id: string, data: Usuario) {
     return this.http.put(URL_SERVICES + `/usuario/updateUser/${id}`, data, this.httpOptions);
+  }
+
+  getSupervisores() {
+    return this.http.get( URL_SERVICES + '/usuario/getSupervisores', this.httpOptions)
+      .map( (res: any) => res.usuarios);
   }
 }

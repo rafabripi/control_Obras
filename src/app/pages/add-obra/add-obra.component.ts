@@ -15,7 +15,8 @@ import { Usuario } from '../../models/usuario.model';
 export class AddObraComponent implements OnInit {
   public title: String;
   public formulario: FormGroup;
-  public supervisores: Usuario[];
+  supervisores: Usuario[];
+  // contratistas: Contratista[];
 
   constructor(private _obraService: ObrasService, private _usuarioService: UsuarioService) {
     this.title = 'Crear nuevo proyecto de obra';
@@ -41,7 +42,10 @@ export class AddObraComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this._usuarioService.getSupervisores()
+      .subscribe( resp => {
+        this.supervisores = resp;
+      });
     // relleno para pruebas retirar estas lineas al terminar
     this.formulario.setValue({
       clave_municipal: 'LP-DUOP-01/19',

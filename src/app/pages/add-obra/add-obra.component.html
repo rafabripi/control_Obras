@@ -87,12 +87,13 @@
     
     <div class="form-group row">
         <label>Supervisor</label>
-        <input 
-          class="form-control" 
-          type="text" 
-          placeholder="Supervisor"
+        <select 
+          class="form-control custom-select"
           formControlName="supervisor"
-        >
+          name="supervisor"
+          id="supervisor">
+          <option *ngFor="let item of supervisores" [value]="item.nombre"> {{item.nombre}} </option>
+        </select>
     </div>
     
     <div class="form-group row">
