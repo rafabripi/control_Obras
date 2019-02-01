@@ -1,0 +1,56 @@
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-dark" [routerLink]="['/contratistasList']" >Lista</button>
+  <button type="button" class="btn btn-dark" [routerLink]="['/nuevoContratista']">Nuevo</button>
+  <!-- <button type="button" class="btn btn-dark">Editar</button> -->
+</div>
+<div style="text-align:center">
+<h1>{{ title }}</h1>
+</div>
+
+<form ngNativeValidate [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formContratista="ngForm" >
+<label for="contratista">Contratista</label><br />
+<input  formControlName="razon_social" 
+    name="razon_social" 
+    type="text" 
+    required />
+<br />
+
+<label for="nombre">RFC</label><br />
+<input formControlName="rfc"
+   name="rfc" 
+   type="text"/>
+<br />
+
+<label for="apellidos">representante</label><br />
+<input formControlName="representante"
+   name="representante" 
+   type="text"/>
+<br />
+
+<label for="pass">estado</label><br />
+<input  formControlName="estado" 
+    name="estado" 
+    type="text" 
+    required />
+<br />
+
+<label for="correo">Correo</label><br />
+<input formControlName="correo"
+   name="correo" 
+   type="email"/>
+<br />
+
+<label for="tipo">Tipo</label><br />
+<select formControlName="tipo"
+    name="tipo"
+    id="tipo"
+    required>
+          <option value="Administrador">Administrador</option>
+          <option value="Supervisor">Supervisor obra</option>
+          <option value="Egresos">Jefe egresos</option>
+          <option value="Tesorero">Tesorero</option>
+</select>
+<br />
+
+<input type="submit" value="Guardar" />
+</form>

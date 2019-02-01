@@ -22,6 +22,9 @@ import { UsuarioService } from '../services/usuario.service';
 import { ObrasService } from '../services/obras.service';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { NuevoContratistaComponent } from './nuevo-contratista/nuevo-contratista.component';
+import { ContratistaComponent } from './contratista/contratista.component';
+import { ContratistasComponent } from './contratistas/contratistas.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +36,10 @@ import { UsuarioComponent } from './usuario/usuario.component';
         NuevoUsuarioComponent,
         FotosComponent,
         UsuariosComponent,
-        UsuarioComponent
+        UsuarioComponent,
+        NuevoContratistaComponent,
+        ContratistaComponent,
+        ContratistasComponent
     ],
     imports: [
         CommonModule,
