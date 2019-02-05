@@ -86,7 +86,7 @@ export class UsuarioService {
 
   getUsers() {
     return this.http.get(URL_SERVICES + `/usuario/getUsers`, this.httpOptions)
-      .map((res: any) => res.usuarios);
+      .map((res: any) => res);
   }
 
   updateUser(id: string, data: Usuario) {

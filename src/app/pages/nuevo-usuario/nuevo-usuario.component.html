@@ -7,50 +7,70 @@
   <h1>{{ title }}</h1>
 </div>
 
-<form ngNativeValidate [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm" >
-  <label for="usuario">Usuario</label><br />
-  <input  formControlName="user" 
-          name="user" 
-          type="text" 
-          required />
-  <br />
+<form ngNativeValidate [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm">
+        <div class="col-sm-8">
+                <div class="form-group row">
+                        <label for="usuario">Usuario</label><br />
+                        <input  
+                                class="form-control"
+                                formControlName="user" 
+                                name="user" 
+                                type="text" 
+                                required />
+                </div>
 
-  <label for="nombre">Nombre</label><br />
-  <input formControlName="nombre"
-         name="nombre" 
-         type="text"/>
-  <br />
+                <div class="form-group row">
+                        <label for="nombre">Nombre</label><br />
+                        <input 
+                                class="form-control"
+                                formControlName="nombre"
+                                name="nombre" 
+                                type="text"/>
+                </div>
 
-  <label for="apellidos">Apellidos</label><br />
-  <input formControlName="apellidos"
-         name="apellidos" 
-         type="text"/>
-  <br />
-  
-  <label for="pass">Contraseña</label><br />
-  <input  formControlName="pass" 
-          name="pass" 
-          type="password" 
-          required />
-  <br />
+                <div class="form-group row">
+                        <label for="apellidos">Apellidos</label><br />
+                        <input 
+                                class="form-control"
+                                formControlName="apellidos"
+                                name="apellidos" 
+                                type="text"/>
+                </div>
 
-  <label for="correo">Correo</label><br />
-  <input formControlName="correo"
-         name="correo" 
-         type="email"/>
-  <br />
-  
-  <label for="tipo">Tipo</label><br />
-  <select formControlName="tipo"
-          name="tipo"
-          id="tipo"
-          required>
-                <option value="Administrador">Administrador</option>
-                <option value="Supervisor">Supervisor obra</option>
-                <option value="Egresos">Jefe egresos</option>
-                <option value="Tesorero">Tesorero</option>
-  </select>
-  <br />
+                <div class="form-group row">
+                        <label for="pass">Contraseña</label><br />
+                        <input  
+                                class="form-control"
+                                formControlName="pass" 
+                                name="pass" 
+                                type="password" 
+                                required />
+                </div>
+
+                <div class="form-group row">
+                        <label for="correo">Correo</label><br />
+                        <input 
+                                class="form-control"
+                                formControlName="correo"
+                                name="correo" 
+                                type="email"/>
+                </div>
+
+                <div class="form-group row">
+                        <label for="tipo">Tipo</label><br />
+                        <select 
+                                class="form-control"
+                                formControlName="tipo"
+                                name="tipo"
+                                id="tipo"
+                                required>
+                                      <option value="Administrador">Administrador</option>
+                                      <option value="Supervisor">Supervisor obra</option>
+                                      <option value="Egresos">Jefe egresos</option>
+                                      <option value="Tesorero">Tesorero</option>
+                        </select>
+                </div>
 
   <input type="submit" value="Guardar" />
+        </div>
 </form>

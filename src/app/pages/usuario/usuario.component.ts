@@ -22,10 +22,10 @@ export class UsuarioComponent implements OnInit {
       private activatedRoute: ActivatedRoute,
       private router: Router
     ) {
-    this.title = 'Editar usuario';
-    this.usuario = [];
-    this.activatedRoute.params.subscribe(params => {
-      this.usuarioId = params['id'];
+      this.title = 'Editar usuario';
+      this.usuario = [];
+      this.activatedRoute.params.subscribe(params => {
+        this.usuarioId = params['id'];
     });
   }
 

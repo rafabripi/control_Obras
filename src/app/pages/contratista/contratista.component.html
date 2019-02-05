@@ -1,3 +1,89 @@
-<p>
-  contratista works!
+<div class="animated fadeIn fast">
+  <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-dark" [routerLink]="['/contratistasList']" >Lista</button>
+          <!-- <button type="button" class="btn btn-dark" [routerLink]="['/nuevocontratista']">Nuevo</button> -->
+          <!-- <button type="button" class="btn btn-dark">Editar</button> -->
+  </div>
+<div class="container">
+<h2> Pagina de descripcion de contratista </h2>
+<p class="text-justify w-75">
+  obra-info works! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam est aspernatur laudantium itaque neque nemo velit voluptate. Accusamus animi exercitationem laboriosam, unde eaque est corporis ex dicta et tempore explicabo.
 </p>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formContratista="ngForm" >
+  <label for="contratista">Razon social</label><br />
+  <input  formControlName="razon_social" 
+          name="razon_social" 
+          type="text"
+          required />
+  <br />
+
+  <label for="nombre">RFC</label><br />
+  <input formControlName="rfc"
+         name="rfc" 
+         type="text"/>
+  <br />
+
+  <label for="apellidos">Representante</label><br />
+  <input formControlName="representante"
+         name="representante" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Estado</label><br />
+  <input formControlName="estado"
+         name="estado" 
+         type="text"/>
+  <br />
+  
+  <label for="correo">Ciudad</label><br />
+  <input formControlName="ciudad"
+         name="ciudad" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Codigo postal</label><br />
+  <input formControlName="codigo_postal"
+         name="codigo_postal" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Colonia</label><br />
+  <input formControlName="colonia"
+         name="colonia" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Calle</label><br />
+  <input formControlName="calle"
+         name="calle" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Numero</label><br />
+  <input formControlName="numero"
+         name="numero" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Numero interior</label><br />
+  <input formControlName="numero_int"
+         name="numero_int" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Telefono</label><br />
+  <input formControlName="telefono"
+         name="telefono" 
+         type="text"/>
+  <br />
+
+  <label for="correo">Email de contacto</label><br />
+  <input formControlName="contacto"
+         name="contacto" 
+         type="email"/>
+  <br />
+
+  <input type="submit" value="Actualizar" />
+</form>
+</div>

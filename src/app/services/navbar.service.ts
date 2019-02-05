@@ -12,6 +12,7 @@ export class NavbarService {
         {titulo: 'Lista de obras', url: '/obrasList'},
         {titulo: 'Nuevo proyecto', url: '/addObra'},
         {titulo: 'Usuarios', url: '/usuariosList'},
+        {titulo: 'Contratistas', url: '/contratistasList'},
         {titulo: 'Fotos', url: '/fotos'}
       ];
    }

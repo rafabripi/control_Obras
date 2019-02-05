@@ -1,7 +1,7 @@
 <h2 class="mt-2">{{title}} </h2>
 
 <form [formGroup]="formulario" (ngSubmit)="guardarObra()">
-
+  <div class="col-sm-8">
     <div class="form-group row">
         <label>Clave municipal</label>
         <input 
@@ -128,12 +128,13 @@
     
     <div class="form-group row">
         <label>Contratista</label>
-        <input 
-          class="form-control" 
-          type="text" 
-          placeholder="Contratista"
+        <select 
+          class="form-control custom-select"
           formControlName="contratista"
-        >
+          name="contratista"
+          id="contratista">
+          <option *ngFor="let item of contratistas" [value]="item.razon_social"> {{item.razon_social}} </option>
+        </select>
     </div>
     
     <div class="form-group row">
@@ -158,6 +159,7 @@
           formControlName="nota"
         >
     </div>
-
+    
     <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
+  </div>
+</form>

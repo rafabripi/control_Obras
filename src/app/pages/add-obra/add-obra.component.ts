@@ -3,9 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 // Servicios
 import { ObrasService } from '../../services/obras.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ContratistaService } from '../../services/contratista.service';
 // Modelos
 import { Obra } from '../../models/obra.model';
 import { Usuario } from '../../models/usuario.model';
+import { Contratista } from '../../models/contratista.model';
 
 @Component({
   selector: 'app-add-obra',
@@ -16,11 +18,15 @@ export class AddObraComponent implements OnInit {
   public title: String;
   public formulario: FormGroup;
   supervisores: Usuario[];
-  // contratistas: Contratista[];
+  contratistas: Contratista[];
 
-  constructor(private _obraService: ObrasService, private _usuarioService: UsuarioService) {
+  constructor(
+    private _obraService: ObrasService,
+    private _usuarioService: UsuarioService,
+    private _contratistaService: ContratistaService) {
     this.title = 'Crear nuevo proyecto de obra';
-    this.supervisores = [];
+    this.supervisores = []; 
+    this.contratistas = []; 
 
     this.formulario = new FormGroup({
       'clave_municipal': new FormControl('', Validators.required),
@@ -43,9 +49,9 @@ export class AddObraComponent implements OnInit {
 
   ngOnInit() {
     this._usuarioService.getSupervisores()
-      .subscribe( resp => {
-        this.supervisores = resp;
-      });
+      .subscribe( resp => this.supervisores = resp);
+    this._contratistaService.getContratistas()
+      .subscribe( resp => this.contratistas = resp);
     // relleno para pruebas retirar estas lineas al terminar
     this.formulario.setValue({
       clave_municipal: 'LP-DUOP-01/19',

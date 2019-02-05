@@ -1,3 +1,34 @@
-<p>
-  contratistas works!
-</p>
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-dark" [routerLink]="['/contratistasList']" >Lista</button>
+  <button type="button" class="btn btn-dark" [routerLink]="['/nuevoContratista']">Nuevo</button>
+  <!-- <button type="button" class="btn btn-dark">Editar</button> -->
+</div>
+<!-- /////////////////////////////////////////////// -->
+
+<div class="animated fadeIn fast">
+    <h2>Contratistas</h2>
+    <p class="text-justify">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit delectus eaque reiciendis laboriosam! Dolore dicta quod nesciunt, tempora quae iste debitis sequi doloremque quibusdam rerum labore alias, cumque nulla praesentium.
+    </p>
+    <!--Tabla de bootstap - con redireccion de angular - clases de estilos bootstrap
+    - recorrido por la lista de usarios-->
+    <table class="table animated fadeIn fast">
+        <caption>Total de contratistas {{conteo}} </caption>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Razon social</th>
+          <th scope="col">Representante</th>
+          <th scope="col">RFC</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of contratistas; let i = index">
+            <th scope="row">{{i + 1}} </th>
+            <td [routerLink]="['/contratistaInfo', item._id]" routerLinkActive="router-link-active">{{item.razon_social}}</td>
+            <td [routerLink]="['/contratistaInfo', item._id]" routerLinkActive="router-link-active">{{item.representante}}</td>
+            <td [routerLink]="['/contratistaInfo', item._id]" routerLinkActive="router-link-active">{{item.rfc}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
