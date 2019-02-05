@@ -92,7 +92,7 @@
           formControlName="supervisor"
           name="supervisor"
           id="supervisor">
-          <option *ngFor="let item of supervisores" [value]="item.nombre"> {{item.nombre}} </option>
+          <option *ngFor="let item of supervisores" [value]="item['_id']"> {{item.nombre}} </option>
         </select>
     </div>
     

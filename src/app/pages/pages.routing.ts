@@ -20,6 +20,9 @@ import { ContratistaComponent } from './contratista/contratista.component';
 import { NuevoContratistaComponent } from './nuevo-contratista/nuevo-contratista.component';
 // FOTOS
 import { FotosComponent } from '../components/fotos/fotos.component';
+// SUPERVISORES AVANCE
+import { ObrasSupervisorComponent } from './obras-supervisor/obras-supervisor.component';
+import { NuevoAvanceComponent } from './nuevo-avance/nuevo-avance.component';
 // ####################################################
 // ####################################################
 // Guards
@@ -40,6 +43,8 @@ const pagesRoutes: Routes = [
         { path: 'contratistaInfo/:id', component: ContratistaComponent},
         { path: 'nuevoContratista', component: NuevoContratistaComponent},
         { path: 'fotos', component: FotosComponent},
+        { path: 'obrasSupervisor/:supervisor', component: ObrasSupervisorComponent},
+        { path: 'nuevoAvance', component: NuevoAvanceComponent},
         { path: '', pathMatch: 'full', redirectTo: '/home'}
         ]
     }

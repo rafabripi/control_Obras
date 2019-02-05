@@ -23,7 +23,7 @@ export class ContratistasComponent implements OnInit {
       .subscribe( data => {
         this.contratistas = data.contratistas;
         this.conteo = data.conteo;
-      })
+      });
   }
 
 }

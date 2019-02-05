@@ -25,6 +25,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { NuevoContratistaComponent } from './nuevo-contratista/nuevo-contratista.component';
 import { ContratistaComponent } from './contratista/contratista.component';
 import { ContratistasComponent } from './contratistas/contratistas.component';
+import { ObrasSupervisorComponent } from './obras-supervisor/obras-supervisor.component';
+import { NuevoAvanceComponent } from './nuevo-avance/nuevo-avance.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +41,9 @@ import { ContratistasComponent } from './contratistas/contratistas.component';
         UsuarioComponent,
         NuevoContratistaComponent,
         ContratistaComponent,
-        ContratistasComponent
+        ContratistasComponent,
+        ObrasSupervisorComponent,
+        NuevoAvanceComponent
     ],
     imports: [
         CommonModule,

@@ -30,7 +30,6 @@ export class ContratistaService {
   saveContratista(data: Contratista) {
     return this.http.post(URL_SERVICES + '/contratista/saveContratista', data, this.httpOptions)
       .map( (resp: any) => {
-        console.log(resp);
         swal('Contratista guardado!', data.razon_social.toString(), 'success');
         return resp.contratista;
       });
@@ -38,16 +37,16 @@ export class ContratistaService {
 
   getContratistas() {
     return this.http.get(URL_SERVICES + '/contratista/getContratistas', this.httpOptions)
-      .map( (resp: any )=> resp.contratistas);
+      .map( (resp: any ) => resp);
   }
 
   getContratista(id: string) {
     return this.http.get(URL_SERVICES + `/contratista/getContratista/${id}`, this.httpOptions)
-      .map((resp: any)=> resp.contratista);
+      .map((resp: any) => resp.contratista);
   }
 
   updateContratista(id: string, data: Contratista) {
     return this.http.put(URL_SERVICES + `/contratista/updateContratista/${id}`, data, this.httpOptions)
-      .map( (resp: any)=> resp )
+      .map( (resp: any) => resp );
   }
 }

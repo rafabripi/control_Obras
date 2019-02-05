@@ -25,8 +25,8 @@ export class AddObraComponent implements OnInit {
     private _usuarioService: UsuarioService,
     private _contratistaService: ContratistaService) {
     this.title = 'Crear nuevo proyecto de obra';
-    this.supervisores = []; 
-    this.contratistas = []; 
+    this.supervisores = [];
+    this.contratistas = [];
 
     this.formulario = new FormGroup({
       'clave_municipal': new FormControl('', Validators.required),
@@ -51,7 +51,7 @@ export class AddObraComponent implements OnInit {
     this._usuarioService.getSupervisores()
       .subscribe( resp => this.supervisores = resp);
     this._contratistaService.getContratistas()
-      .subscribe( resp => this.contratistas = resp);
+      .subscribe( resp => this.contratistas = resp.contratistas);
     // relleno para pruebas retirar estas lineas al terminar
     this.formulario.setValue({
       clave_municipal: 'LP-DUOP-01/19',
