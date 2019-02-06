@@ -59,5 +59,4 @@ export class NuevoContratistaComponent implements OnInit {
                           this.formulario.reset();
                         });
   }
-
 }

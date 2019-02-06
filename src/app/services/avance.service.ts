@@ -4,6 +4,8 @@ import { URL_SERVICES } from '../config/config';
 // Servicios
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UsuarioService } from './usuario.service';
+// Modelos
+import { Avance } from '../models/avance.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,13 @@ export class AvanceService {
         'token': this._usuarioService.token
       })
     };
+  }
+  saveAvance(data: Avance) {
+    console.log('guardar avance');
+    return this.http.post( URL_SERVICES + '/avance/saveAvance', data, this.httpOptions )
+      .map( (resp: any) => {
+        console.log(resp);
+      });
   }
 
   getAvance(id: string): any {

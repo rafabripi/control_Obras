@@ -9,7 +9,7 @@
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-dark" [routerLink]="['/fotos']" >Fotos</button>
         <button type="button" class="btn btn-dark" [routerLink]="['/']">Subir fotos</button>
-        <button *ngIf="UserType === 'Desarrollador'" type="button" class="btn btn-dark" [routerLink]="['/nuevoAvance']">Agregar avance</button>
+        <button *ngIf="UserType === 'Desarrollador'" type="button" class="btn btn-dark" data-toggle="modal">Agregar avance</button>
 <!--         debera de quedar solo para supervisores (quitar comeentario y linea anterior)
         <button *ngIf="UserType === 'Supervisor'" type="button" class="btn btn-dark" [routerLink]="['/nuevoAvance']">Agregar avance</button> -->
     </div>
@@ -95,3 +95,45 @@
     </tbody>
   </table>
 </div>
+
+
+<!-- ----------------------------------------------------------- -->
+<!-- ----------------------MODAL-------------------------------- -->
+<!-- ----------------------------------------------------------- -->
+
+<div class="modal fade" id="AvanceModal" tabindex="-1" role="dialog" aria-labelledby="AvanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="AvanceModalLabel">Registrar nuevo avance</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  
+        <div class="modal-body">
+          
+        <!---------------------------------------------------------------------------------  -->
+        <form ngNativeValidate [formGroup]="formularioAvance" (ngSubmit)="onSubmit()" action="#" #formContratista="ngForm">
+          <div class="col-sm-8">
+            <div class="form-group row">
+            <label for="contratista">Razon social</label><br />
+            <input  
+              class="form-control"
+              formControlName="razon_social" 
+              name="razon_social" 
+              type="text"
+              required />
+            </div>  
+          </div>
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <input type="submit" value="Guardar" />
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+  

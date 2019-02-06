@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 // Modelo
 import { Obra } from 'src/app/models/obra.model';
 // Servicios
@@ -16,6 +17,7 @@ export class ObraInfoComponent implements OnInit {
   obra: Obra[];
   avance: any[];
   UserType: string;
+  formularioAvance: FormGroup;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -41,5 +43,9 @@ export class ObraInfoComponent implements OnInit {
         .subscribe(arg => {
           ( arg ) ? this.avance = arg : this.avance['avance'] = 0;
         });
+  }
+
+  onSubmit() {
+    console.log();
   }
 }
