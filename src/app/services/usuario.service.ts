@@ -8,6 +8,8 @@ import { Usuario } from '../models/usuario.model';
 import 'rxjs/add/operator/map';
 // Importacion de archivo de config global
 import { URL_SERVICES } from '../config/config';
+// Servicios
+import { NavbarService } from './navbar.service';
 // --------------------------------------------------------------
 
 @Injectable({
@@ -18,7 +20,9 @@ export class UsuarioService {
   token: string;
   httpOptions: any;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient,
+              private router: Router,
+              private _navbarService: NavbarService) {
     this.loadStorage();
     this.httpOptions = {
       headers: new HttpHeaders({
@@ -65,7 +69,6 @@ export class UsuarioService {
       localStorage.setItem('id', resp.id);
       localStorage.setItem('token', resp.token);
       localStorage.setItem('usuario', JSON.stringify(resp.usuario));
-
       return true;
     });
   }
