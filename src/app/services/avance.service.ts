@@ -22,10 +22,10 @@ export class AvanceService {
     };
   }
   saveAvance(data: Avance) {
-    console.log('guardar avance');
     return this.http.post( URL_SERVICES + '/avance/saveAvance', data, this.httpOptions )
       .map( (resp: any) => {
-        console.log(resp);
+        swal('Avance guardado!', resp.avance.toString(), 'success');
+        return resp.avance;
       });
   }
 

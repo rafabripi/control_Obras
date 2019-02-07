@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-// Modelo
+// Modelos
 import { Obra } from 'src/app/models/obra.model';
+import { Avance } from '../../models/avance.model';
 // Servicios
 import { ObrasService } from '../../services/obras.service';
 import { AvanceService } from 'src/app/services/avance.service';
@@ -17,6 +18,7 @@ export class ObraInfoComponent implements OnInit {
   obra: Obra[];
   avance: any[];
   UserType: string;
+  userId: string;
   formularioAvance: FormGroup;
 
   constructor(
@@ -30,6 +32,7 @@ export class ObraInfoComponent implements OnInit {
       // usamos la propiedad UserType y le asignamos el tipo recogido del localStorage
       // ahora en el html se muestra el boton "hola" solo a Desarrollador
       this.UserType = JSON.parse( localStorage.getItem('usuario')).tipo;
+      this.userId = JSON.parse( localStorage.getItem('usuario'))._id;
       this.activatedRoute.params.subscribe( params => {
       this.idObra = params['id'];
     });
@@ -38,7 +41,8 @@ export class ObraInfoComponent implements OnInit {
   ngOnInit() {
     this.formularioAvance = new FormGroup({
       // FormControl('valorDefault', [Validators.validadoresAngular, Validators.validadoresAngular])
-      nombre: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      avance: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      comentarios: new FormControl(null)
     });
 
     this._obrasService.getObra(this.idObra)
@@ -51,6 +55,20 @@ export class ObraInfoComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log();
+    const DATA_FORM = this.formularioAvance.value;
+
+    const dataAvance = new Avance(
+      new Date(),
+      DATA_FORM.avance + '%',
+      this.idObra,
+      this.userId,
+      DATA_FORM.comentarios
+    );
+
+    this._avanceService.saveAvance(dataAvance)
+      .subscribe( respAvance => {
+        console.log('avance guardado');
+        // document.getElementById('AvanceModal').style.visibility = 'hidden';
+      } );
   }
 }
