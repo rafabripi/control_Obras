@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 // Modelo
 import { Obra } from 'src/app/models/obra.model';
 // Servicios
@@ -36,6 +36,11 @@ export class ObraInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formularioAvance = new FormGroup({
+      // FormControl('valorDefault', [Validators.validadoresAngular, Validators.validadoresAngular])
+      nombre: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    });
+
     this._obrasService.getObra(this.idObra)
       .subscribe(data => this.obra = data);
 

@@ -9,7 +9,7 @@
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-dark" [routerLink]="['/fotos']" >Fotos</button>
         <button type="button" class="btn btn-dark" [routerLink]="['/']">Subir fotos</button>
-        <button *ngIf="UserType === 'Desarrollador'" type="button" class="btn btn-dark" data-toggle="modal">Agregar avance</button>
+        <button *ngIf="UserType === 'Desarrollador'" type="button" class="btn btn-dark" data-toggle="modal" data-target="#AvanceModal">Agregar avance</button>
 <!--         debera de quedar solo para supervisores (quitar comeentario y linea anterior)
         <button *ngIf="UserType === 'Supervisor'" type="button" class="btn btn-dark" [routerLink]="['/nuevoAvance']">Agregar avance</button> -->
     </div>
@@ -117,11 +117,11 @@
         <form ngNativeValidate [formGroup]="formularioAvance" (ngSubmit)="onSubmit()" action="#" #formContratista="ngForm">
           <div class="col-sm-8">
             <div class="form-group row">
-            <label for="contratista">Razon social</label><br />
+            <label for="contratista">Nombre</label><br />
             <input  
               class="form-control"
-              formControlName="razon_social" 
-              name="razon_social" 
+              formControlName="nombre" 
+              name="nombre" 
               type="text"
               required />
             </div>  
