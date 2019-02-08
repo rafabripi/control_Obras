@@ -7,6 +7,8 @@ import { Avance } from '../../models/avance.model';
 // Servicios
 import { ObrasService } from '../../services/obras.service';
 import { AvanceService } from 'src/app/services/avance.service';
+import { FotosService } from '../../services/fotos.service';
+import { Img } from '../../models/img.model';
 
 @Component({
   selector: 'app-obra-info',
@@ -16,7 +18,7 @@ import { AvanceService } from 'src/app/services/avance.service';
 export class ObraInfoComponent implements OnInit {
   idObra: any;
   obra: Obra[];
-  avance: any[];
+  avance: Avance[];
   UserType: string;
   userId: string;
   formularioAvance: FormGroup;
@@ -24,7 +26,8 @@ export class ObraInfoComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private _obrasService: ObrasService,
-    private _avanceService: AvanceService
+    private _avanceService: AvanceService,
+    private _fotoService: FotosService
   ) {
       this.obra = [];
       this.avance = [];
@@ -42,33 +45,45 @@ export class ObraInfoComponent implements OnInit {
     this.formularioAvance = new FormGroup({
       // FormControl('valorDefault', [Validators.validadoresAngular, Validators.validadoresAngular])
       avance: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      comentarios: new FormControl(null)
+      comentarios: new FormControl(null),
+      fotos: new FormControl(null, Validators.required)
     });
 
     this._obrasService.getObra(this.idObra)
       .subscribe(data => this.obra = data);
 
-    this._avanceService.getAvance(this.idObra)
-        .subscribe(arg => {
-          ( arg ) ? this.avance = arg : this.avance['avance'] = 0;
-        });
+    this.getAvances();
   }
 
   onSubmit() {
     const DATA_FORM = this.formularioAvance.value;
-
+    console.log(DATA_FORM);
     const dataAvance = new Avance(
-      new Date(),
       DATA_FORM.avance + '%',
       this.idObra,
       this.userId,
       DATA_FORM.comentarios
     );
 
+    const dataFotos = new Img(
+      DATA_FORM.fotos,
+      this.idObra
+    );
+
     this._avanceService.saveAvance(dataAvance)
       .subscribe( respAvance => {
-        console.log('avance guardado');
+        this.formularioAvance.reset();
+        this.getAvances();
         // document.getElementById('AvanceModal').style.visibility = 'hidden';
-      } );
+      });
+
+      // this._fotoService.loadImg()
+  }
+
+  getAvances() {
+    this._avanceService.getAvance(this.idObra)
+        .subscribe(arg => {
+          ( arg ) ? this.avance = arg : this.avance['avance'] = 0;
+        });
   }
 }

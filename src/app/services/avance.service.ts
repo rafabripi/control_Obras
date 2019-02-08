@@ -24,7 +24,7 @@ export class AvanceService {
   saveAvance(data: Avance) {
     return this.http.post( URL_SERVICES + '/avance/saveAvance', data, this.httpOptions )
       .map( (resp: any) => {
-        swal('Avance guardado!', resp.avance.toString(), 'success');
+        swal('Avance guardado!', 'Avance de ' +  resp.avance.avance.toString(), 'success');
         return resp.avance;
       });
   }

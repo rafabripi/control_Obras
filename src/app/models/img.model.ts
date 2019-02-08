@@ -1,7 +1,7 @@
 export class Img {
     constructor(
         public nombre: String,
-        public fecha?: Date,
+        public obraId: String,
         public checklist?: String
     ) {}
 }
