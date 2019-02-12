@@ -43,7 +43,8 @@ export class NuevoAvanceComponent implements OnInit {
   }
 
   onArchivoSeleccionado(event) {
-    this.fotos = event.target.files[0];
+    console.log( 'event', event.target.files);
+    this.fotos = event.target.files;
   }
 
   onSubmit() {
@@ -59,9 +60,17 @@ export class NuevoAvanceComponent implements OnInit {
       this.idObra,
       'avance'
     );
+    
+    for (const key in this.fotos) {
+      if (this.fotos.hasOwnProperty(key)) {
+        const element = this.fotos[key];
+        this._fotoService.loadImg(element, dataFotos)
+          .subscribe( respFotos => {});
+      }
+    }
 
-    this._fotoService.loadImg(this.fotos, dataFotos)
-      .subscribe( respFotos => {});
+    
+    
     this._avanceService.saveAvance(dataAvance)
       .subscribe( respAvance => {
         this.formularioAvance.reset();

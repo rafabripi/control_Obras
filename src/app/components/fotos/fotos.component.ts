@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FotosService } from '../../services/fotos.service';
-import { Img } from '../../models/img.model';
+// Servicios
 import { ObrasService } from '../../services/obras.service';
+import { FotosService } from '../../services/fotos.service';
+// Modelos
+import { Img } from '../../models/img.model';
 import { Obra } from '../../models/obra.model';
 
 @Component({
