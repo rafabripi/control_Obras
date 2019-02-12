@@ -42,9 +42,9 @@ const pagesRoutes: Routes = [
         { path: 'contratistasList', component: ContratistasComponent},
         { path: 'contratistaInfo/:id', component: ContratistaComponent},
         { path: 'nuevoContratista', component: NuevoContratistaComponent},
-        { path: 'fotos', component: FotosComponent},
         { path: 'obrasSupervisor/:supervisor', component: ObrasSupervisorComponent},
         { path: 'nuevoAvance', component: NuevoAvanceComponent},
+        { path: 'fotos/:checklist/:obraId', component: FotosComponent},
         { path: '', pathMatch: 'full', redirectTo: '/home'}
         ]
     }

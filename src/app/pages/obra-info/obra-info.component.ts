@@ -30,8 +30,8 @@ export class ObraInfoComponent implements OnInit {
       // ahora en el html se muestra el boton "hola" solo a Desarrollador
       this.UserType = JSON.parse( localStorage.getItem('usuario')).tipo;
       this.activatedRoute.params.subscribe( params => {
-      this.idObra = params['id'];
-    });
+        this.idObra = params['id'];
+      });
   }
 
   ngOnInit() {

@@ -7,7 +7,7 @@
   </div>
 
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-dark" [routerLink]="['/fotos']" >Fotos</button>
+        <button type="button" class="btn btn-dark" [routerLink]="['/fotos', 'avance', idObra]" >Fotos</button>
         <button *ngIf="UserType === 'Desarrollador'" type="button" class="btn btn-dark" data-toggle="modal" data-target="#AvanceModal">Agregar avance</button>
 <!--         debera de quedar solo para supervisores (quitar comeentario y linea anterior)
         <button *ngIf="UserType === 'Supervisor'" type="button" class="btn btn-dark" [routerLink]="['/nuevoAvance']">Agregar avance</button> -->

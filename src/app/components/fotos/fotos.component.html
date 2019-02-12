@@ -1,9 +1,25 @@
-<div class="card" style="width: 18rem;">
-  <img [src]=" fotoItem | imagen " class="card-img-top" alt="...">
+<div class="card text-center">
   <div class="card-body">
+    <div class="card-header">
+      <h5 class="card-text"> {{obraData['nombre_obra']}} </h5>
+      <p class="card-title">{{obraData['clave_municipal']}} </p>
+    </div>
+    <!-- --------------------Contenido de targeta principal-------------------- -->
     
-    <h5 class="card-title">{{obraData['clave_municipal']}} </h5>
-    <p class="card-text"> {{obraData['nombre_obra']}} </p>
-    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    <div class="row">
+      <div *ngFor="let item of fotos" class="col-sm-4">
+          <div class="card text-center" style="width: 18rem;">
+              <img [src]=" item['nombre'] | imagen " class="card-img-top" alt="...">
+              <div class="card-body">
+                
+                <p class="card-text"> {{item['nombre'] }} </p>
+              </div>
+            </div>
+      </div>
+
+    </div>
+
+    <!-- --------------FIN de contenido de targeta principal---------------- -->
+    
   </div>
 </div>

@@ -19,6 +19,8 @@ export class NuevoAvanceComponent implements OnInit {
   idObra: any;
   userId: string;
   fotos: any;
+  avanceId: string;
+
   @Output() cambioAvance: EventEmitter<number> = new EventEmitter();
 
   constructor(
@@ -43,7 +45,6 @@ export class NuevoAvanceComponent implements OnInit {
   }
 
   onArchivoSeleccionado(event) {
-    console.log( 'event', event.target.files);
     this.fotos = event.target.files;
   }
 
@@ -56,11 +57,19 @@ export class NuevoAvanceComponent implements OnInit {
       DATA_FORM.comentarios
     );
 
-    const dataFotos = new Img(
-      this.idObra,
-      'avance'
-    );
-    
+    this._avanceService.saveAvance(dataAvance)
+      .subscribe( respAvance => {
+        this.avanceId = respAvance._id;
+        this.formularioAvance.reset();
+        this.cambioAvance.emit(respAvance.avance);
+      });
+
+      let dataFotos = new Img(
+        this.idObra,
+        this.avanceId,
+        'avance'
+      );
+
     for (const key in this.fotos) {
       if (this.fotos.hasOwnProperty(key)) {
         const element = this.fotos[key];
@@ -68,13 +77,5 @@ export class NuevoAvanceComponent implements OnInit {
           .subscribe( respFotos => {});
       }
     }
-
-    
-    
-    this._avanceService.saveAvance(dataAvance)
-      .subscribe( respAvance => {
-        this.formularioAvance.reset();
-        this.cambioAvance.emit(respAvance.avance);
-      });
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // Servicios
 import { ObrasService } from '../../services/obras.service';
 import { FotosService } from '../../services/fotos.service';
@@ -15,13 +16,17 @@ export class FotosComponent implements OnInit {
   checklist: string;
   obraId: any;
   fotos: Img[];
-  fotoItem: any;
   obraData: Obra[];
 
-  constructor(private _fotosService: FotosService, private _obraService: ObrasService) {
+  constructor(
+      private _fotosService: FotosService,
+      private _obraService: ObrasService,
+      private activatedRoute: ActivatedRoute) {
     // busqueda estatica, se necesita terminar esta carectistica
-    this.checklist = 'anticipo';
-    this.obraId = '5c1c2be74be5a91a30e25d72';
+    this.activatedRoute.params.subscribe( params => {
+      this.obraId = params['obraId'];
+      this.checklist = params['checklist'];
+    });
     this.fotos = [];
     this.obraData = [];
   }
@@ -31,10 +36,8 @@ export class FotosComponent implements OnInit {
     this._fotosService.getImgs(data)
       .subscribe(resp => {
         this.fotos = resp;
-        this.fotoItem = this.fotos[0]['nombre'];
       });
     this._obraService.getObra(this.obraId)
       .subscribe(arg => this.obraData = arg);
   }
-
 }
