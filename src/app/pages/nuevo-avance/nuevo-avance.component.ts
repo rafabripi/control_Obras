@@ -60,22 +60,26 @@ export class NuevoAvanceComponent implements OnInit {
     this._avanceService.saveAvance(dataAvance)
       .subscribe( respAvance => {
         this.avanceId = respAvance._id;
-        this.formularioAvance.reset();
+        
+        let dataFotos = new Img(
+          this.idObra,
+          this.avanceId,
+          'avance'
+          );
+          for (const key in this.fotos) {
+            if (this.fotos.hasOwnProperty(key)) {
+              const element = this.fotos[key];
+              this._fotoService.loadImg(element, dataFotos)
+              .subscribe( respFotos => {
+                this.formularioAvance.reset();
+              });
+            }
+          }
+
         this.cambioAvance.emit(respAvance.avance);
       });
-
-      let dataFotos = new Img(
-        this.idObra,
-        this.avanceId,
-        'avance'
-      );
-
-    for (const key in this.fotos) {
-      if (this.fotos.hasOwnProperty(key)) {
-        const element = this.fotos[key];
-        this._fotoService.loadImg(element, dataFotos)
-          .subscribe( respFotos => {});
-      }
-    }
+      
+        
+    
   }
 }
