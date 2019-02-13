@@ -1,60 +1,99 @@
-<div class="animated fadeIn fast">
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-dark" [routerLink]="['/usuariosList']" >Lista</button>
-                <!-- <button type="button" class="btn btn-dark" [routerLink]="['/nuevoUsuario']">Nuevo</button> -->
-                <!-- <button type="button" class="btn btn-dark">Editar</button> -->
-        </div>
-    <div class="container">
-      <h2> Pagina de descripcion de usuario </h2>
-      <p class="text-justify w-75">
-        obra-info works! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam est aspernatur laudantium itaque neque nemo velit voluptate. Accusamus animi exercitationem laboriosam, unde eaque est corporis ex dicta et tempore explicabo.
+<div class="container animated fadeIn fast">
+  <div class="row align-items-center">
+    <div class="col-sm-12">
+      <div
+        class="btn-group btn-group-lg"
+        role="group"
+        aria-label="Basic example"
+      >
+        <button
+          type="button"
+          class="btn btn-dark"
+          [routerLink]="['/usuariosList']"
+        >
+          Lista
+        </button>
+        <!-- <button type="button" class="btn btn-dark" [routerLink]="['/nuevoUsuario']">Nuevo</button> -->
+        <!-- <button type="button" class="btn btn-dark">Editar</button> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col-sm-12">
+      <h2>Pagina de descripcion de usuario</h2>
+      <p class="text-justify w-100">
+        obra-info works! Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Quam est aspernatur laudantium itaque neque nemo velit voluptate.
+        Accusamus animi exercitationem laboriosam, unde eaque est corporis ex
+        dicta et tempore explicabo.
       </p>
     </div>
-    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#" #formUsuario="ngForm" >
-        <label for="usuario">Usuario</label><br />
-        <input  formControlName="user" 
-                name="user" 
-                type="text"
-                required />
-        <br />
-      
-        <label for="nombre">Nombre</label><br />
-        <input formControlName="nombre"
-               name="nombre" 
-               type="text"/>
-        <br />
-      
-        <label for="apellidos">Apellidos</label><br />
-        <input formControlName="apellidos"
-               name="apellidos" 
-               type="text"/>
-        <br />
-      
-        <label for="correo">Correo</label><br />
-        <input formControlName="correo"
-               name="correo" 
-               type="email"/>
-        <br />
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col-sm-8">
+      <form
+        [formGroup]="formulario"
+        (ngSubmit)="onSubmit()"
+        action="#"
+        #formUsuario="ngForm"
+      >
+        <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input class="form-control" formControlName="user" name="user" type="text" required />
+        </div>
+
+        <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input class="form-control" formControlName="nombre" name="nombre" type="text" />
+        </div>
+
+        <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input class="form-control" formControlName="apellidos" name="apellidos" type="text" />
+        </div>
+
+        <div class="form-group">
+                <label for="correo">Correo</label>
+                <input class="form-control" formControlName="correo" name="correo" type="email" />
+        </div>
         
-        <label for="tipo">Tipo</label><br />
-        <select formControlName="tipo"
-                name="tipo" 
-                id="tipo"
-                required>
+        <div class="form-group">
+                <label for="tipo">Tipo</label>
+                <select
+                        class="custom-select form-control"
+                        formControlName="tipo"
+                        name="tipo"
+                        id="tipo"
+                        required
+                >
                 <option value="Normal">Normal</option>
                 <option value="Administrador">Administrador</option>
-        </select>
-        <br />
+                <option value="Supervisor">Supervisor</option>
+                <option value="Egresos">Egresos</option>
+                <option value="Tesorero">Tesorero</option>
+              </select>
+        </div>
 
-        <div class="custom-control custom-switch">
-                <input  formControlName="estado"
+        <div class="form-group">
+                <div class="custom-control custom-switch">
+                        <input
+                        formControlName="estado"
                         name="estado"
-                        type="checkbox" 
-                        class="custom-control-input" 
+                        type="checkbox"
+                        class="custom-control-input form-control"
                         id="customSwitch1"
-                >
-                <label class="custom-control-label" for="customSwitch1">Activo</label>
+                        />
+                        <label class="custom-control-label" for="customSwitch1">Activo</label>
                 </div>
-        <input type="submit" value="Actualizar" />
+        
+        </div>
+
+        <div class="form-group">
+                <input type="submit" value="Actualizar" />
+        </div>
       </form>
+    </div>
   </div>
+</div>

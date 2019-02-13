@@ -58,7 +58,7 @@
           class="form-control custom-select"
           formControlName="direccion_responsable"
         >
-            <option selected>Selecciona una dirección</option>
+            <!-- <option selected>Selecciona una dirección</option> -->
             <option value="Obras Publicas">Obras Publicas</option>
             <option value="Urbanismo">Urbanismo</option>
             <option value="Desarrollo social">Desarrollo social</option>
@@ -98,12 +98,15 @@
     
     <div class="form-group row">
         <label>Tipo de ejecucion</label>
-        <input 
-          class="form-control" 
-          type="text" 
-          placeholder="Tipo de ejecucion"
+        <select 
+          class="form-control custom-select"
           formControlName="tipo_ejecucion"
         >
+          <!-- <option selected>Selecciona el tipo de ejecución</option> -->
+          <option value="Contrato">Contrato</option>
+          <option value="Administración">Administración</option>
+          <option value="Convenio CFE">Convenio CFE</option>
+        </select>
     </div>
     
     <div class="form-group row">
@@ -143,7 +146,7 @@
           class="custom-select" 
           id="inputGroupSelect01"
           formControlName="estado">
-          <option selected>Seleccione una opción</option>
+          <!-- <option selected>Seleccione una opción</option> -->
           <option value="APROVADA PERO SIN INICIAR">Aprovada pero sin iniciar</option>
           <option value="EN PROCESO">En proceso</option>
           <option value="TERMINADA">Terminada</option>
@@ -152,12 +155,7 @@
 
     <div class="form-group row">
         <label>Nota</label>
-        <input 
-          class="form-control" 
-          type="text" 
-          placeholder="Notas"
-          formControlName="nota"
-        >
+        <textarea class="form-control" formControlName="nota" name="nota" rows="2"></textarea>
     </div>
     
     <button type="submit" class="btn btn-primary">Guardar</button>

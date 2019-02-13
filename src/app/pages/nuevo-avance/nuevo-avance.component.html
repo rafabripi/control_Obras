@@ -17,7 +17,12 @@
         <div class="form-group">
           <label for="contratista">Avance</label><br />
           <div class="input-group flex-nowrap ">
-            <input type="number" class="form-control" formControlName="avance" name="avance" aria-label="Username"
+            <input type="number"
+                   class="form-control"
+                   formControlName="avance"
+                   name="avance" 
+                   [placeholder]="avanceActual"
+                   aria-label="Username"
               aria-describedby="addon-wrapping" required>
             <div class="input-group-prepend">
               <span class="input-group-text" id="addon-wrapping">%</span>

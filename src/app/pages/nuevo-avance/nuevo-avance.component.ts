@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 // Modelos
@@ -22,6 +22,7 @@ export class NuevoAvanceComponent implements OnInit {
   avanceId: string;
 
   @Output() cambioAvance: EventEmitter<number> = new EventEmitter();
+  @Input() avanceActual: number;
 
   constructor(
     private _avanceService: AvanceService,

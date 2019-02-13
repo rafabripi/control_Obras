@@ -53,23 +53,23 @@ export class AddObraComponent implements OnInit {
     this._contratistaService.getContratistas()
       .subscribe( resp => this.contratistas = resp.contratistas);
     // relleno para pruebas retirar estas lineas al terminar
-    this.formulario.setValue({
-      clave_municipal: 'LP-DUOP-01/19',
-      nombre_obra: 'OBRA DE PRUEBA',
-      localidad: 'LA PIEDAD',
-      tipo_ejecucion: 'CONTRATO',
-      estado: 'Aprovada pero sin inciar',
-      meta: 'ALGUNA',
-      beneficiarios_directos: 5,
-      direccion_responsable: 'Desarrollo Social',
-      numero_contrato: 'AD-COPFII01-01/19',
-      fecha_contrato: '2018-01-28',
-      supervisor: 'ALGUNO',
-      programa: 'FONDO III',
-      inversion_aprobada: 5,
-      contratista: 'ALGUNO',
-      nota: 'Normal'
-    });
+    //   this.formulario.setValue({
+    //     clave_municipal: 'LP-DUOP-01/19',
+    //     nombre_obra: 'OBRA DE PRUEBA',
+    //     localidad: 'LA PIEDAD',
+    //     tipo_ejecucion: 'CONTRATO',
+    //     estado: 'Aprovada pero sin inciar',
+    //     meta: 'ALGUNA',
+    //     beneficiarios_directos: 5,
+    //     direccion_responsable: 'Desarrollo Social',
+    //     numero_contrato: 'AD-COPFII01-01/19',
+    //     fecha_contrato: '2018-01-28',
+    //     supervisor: 'ALGUNO',
+    //     programa: 'FONDO III',
+    //     inversion_aprobada: 5,
+    //     contratista: 'ALGUNO',
+    //     nota: 'Normal'
+    //   });
   }
 
   guardarObra() {

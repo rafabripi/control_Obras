@@ -19,8 +19,7 @@ export class NavbarService {
       {titulo: 'Nuevo proyecto', url: '/addObra'},
       {titulo: 'Usuarios', url: '/usuariosList'},
       {titulo: 'Contratistas', url: '/contratistasList'},
-      {titulo: 'Supervisores', url: `/obrasSupervisor/${this.userId}`},
-      {titulo: 'Fotos', url: '/fotos'}
+      {titulo: 'Supervisores', url: `/obrasSupervisor/${this.userId}`}
     ];
   }
   closeService() {

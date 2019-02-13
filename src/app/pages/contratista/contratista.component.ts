@@ -50,10 +50,10 @@ export class ContratistaComponent implements OnInit {
         });
       });
       // Probar hacer el set de valores anterior en el primer parametro
-      
+
     // Validaciones de formulario
     this.formulario = new FormGroup({
-      razon_social: new FormControl(null, [Validators.required] ),
+      razon_social: new FormControl({value: null, disabled: true}, [Validators.required] ),
       rfc: new FormControl(null, [Validators.required, Validators.minLength(12), Validators.maxLength(13)]),
       representante: new FormControl(null, [Validators.required]),
       estado: new FormControl(null),

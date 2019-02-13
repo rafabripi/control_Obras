@@ -42,6 +42,11 @@ form input[type='submit']{
 .navbar {
     padding-bottom: 30px;
 }
+.btn-group-vertical>.btn, .btn-group>.btn {
+  position: relative;
+  flex: 1 1 auto;
+  margin-bottom: 10px;
+}
 
 /*Animaciones de curso angular*/
 .animated {
