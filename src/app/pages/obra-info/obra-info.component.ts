@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 // Modelos
 import { Obra } from 'src/app/models/obra.model';
 import { Avance } from '../../models/avance.model';
@@ -19,6 +20,7 @@ export class ObraInfoComponent implements OnInit {
   UserType: string;
 
   constructor(
+    private _location: Location,
     private _avanceService: AvanceService,
     private activatedRoute: ActivatedRoute,
     private _obrasService: ObrasService
@@ -51,4 +53,8 @@ export class ObraInfoComponent implements OnInit {
   actualizaAvance( e: any ) {
     this.avance['avance'] = e;
   }
+
+  backClicked() {
+    this._location.back();
+   }
 }

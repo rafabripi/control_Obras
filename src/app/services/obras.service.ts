@@ -21,7 +21,7 @@ export class ObrasService {
 
   getObras(): any {
     return this.http.get(URL_SERVICES + '/obra/getObras', this.httpOptions)
-      .pipe(map(data => data['obras']));
+      .pipe(map(data => data));
   }
 
   getObrasSupervisor(supervisor: string) {

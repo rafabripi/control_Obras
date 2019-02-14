@@ -27,6 +27,7 @@ import { ContratistaComponent } from './contratista/contratista.component';
 import { ContratistasComponent } from './contratistas/contratistas.component';
 import { ObrasSupervisorComponent } from './obras-supervisor/obras-supervisor.component';
 import { NuevoAvanceComponent } from './nuevo-avance/nuevo-avance.component';
+import { ArchivosObraComponent } from './archivos-obra/archivos-obra.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { NuevoAvanceComponent } from './nuevo-avance/nuevo-avance.component';
         ContratistaComponent,
         ContratistasComponent,
         ObrasSupervisorComponent,
-        NuevoAvanceComponent
+        NuevoAvanceComponent,
+        ArchivosObraComponent
     ],
     imports: [
         CommonModule,

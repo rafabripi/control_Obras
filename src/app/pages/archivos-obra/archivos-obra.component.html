@@ -1,0 +1,43 @@
+<div class="container animated fadeIn fast">
+  <div class="row">
+    <div class="col-sm-12">
+        <h2> Administracion de archivos </h2>
+        <p class="text-justify w-75">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam est aspernatur laudantium itaque neque nemo velit voluptate. Accusamus animi exercitationem laboriosam, unde eaque est corporis ex dicta et tempore explicabo.
+        </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-dark" (click)="backClicked()">Atras</button>
+          <button type="button" class="btn btn-dark" [routerLink]="['/fotos', 'avance', obraId]" >Fotos</button>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+
+        <table class="table animated fadeIn fast">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre de la obra</th>
+              <th scope="col">Communidad</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+              <!-- <tr *ngFor="let item of obras; let i = index"> -->
+              <tr>
+                <th scope="row"> 1 </th>
+                <td> nombre</td>
+                <td> localidad}}</td>
+                <td> estado}}</td>
+              </tr>
+          </tbody>
+        </table>
+
+    </div>
+  </div>
+</div>

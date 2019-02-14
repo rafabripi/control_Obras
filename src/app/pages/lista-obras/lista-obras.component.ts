@@ -10,10 +10,12 @@ import { Obra } from 'src/app/models/obra.model';
 export class ListaObrasComponent implements OnInit {
   obras: Obra[];
   cargando: boolean;
+  conteo: string;
 
   constructor(private _obrasService: ObrasService) {
     this.obras = [];
     this.cargando = true;
+    this.conteo = '';
   }
 
   ngOnInit() {
@@ -24,7 +26,8 @@ export class ListaObrasComponent implements OnInit {
     this._obrasService.getObras()
       .subscribe(data => {
         this.cargando = false;
-        this.obras = data;
+        this.obras = data.obras;
+        this.conteo = data.conteo;
     }, (err) => {
       console.error(err, 'Error');
     });

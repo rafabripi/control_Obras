@@ -6,6 +6,7 @@ import { FotosService } from '../../services/fotos.service';
 // Modelos
 import { Img } from '../../models/img.model';
 import { Obra } from '../../models/obra.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-fotos',
@@ -19,6 +20,7 @@ export class FotosComponent implements OnInit {
   obraData: Obra[];
 
   constructor(
+      private _location: Location,
       private _fotosService: FotosService,
       private _obraService: ObrasService,
       private activatedRoute: ActivatedRoute) {
@@ -40,4 +42,8 @@ export class FotosComponent implements OnInit {
     this._obraService.getObra(this.obraId)
       .subscribe(arg => this.obraData = arg);
   }
+
+  backClicked() {
+    this._location.back();
+   }
 }

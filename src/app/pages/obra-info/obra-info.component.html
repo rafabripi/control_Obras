@@ -1,13 +1,12 @@
-<div class="animated fadeIn fast">
-  <div class="container">
+<div class="container animated fadeIn fast">
     <h2> Pagina de descripcion de cada obra en especifico </h2>
     <p class="text-justify w-75">
       obra-info works! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam est aspernatur laudantium itaque neque nemo velit voluptate. Accusamus animi exercitationem laboriosam, unde eaque est corporis ex dicta et tempore explicabo.
     </p>
-  </div>
 
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-dark" [routerLink]="['/fotos', 'avance', idObra]" >Fotos</button>
+        <button type="button" class="btn btn-dark" (click)="backClicked()">Atras</button>
+        <button type="button" class="btn btn-dark" [routerLink]="['/archivos', idObra]" >Archivos</button>
         <button *ngIf="UserType === 'Desarrollador'" type="button" class="btn btn-dark" data-toggle="modal" data-target="#AvanceModal">Agregar avance</button>
 <!--         debera de quedar solo para supervisores (quitar comeentario y linea anterior)
         <button *ngIf="UserType === 'Supervisor'" type="button" class="btn btn-dark" [routerLink]="['/nuevoAvance']">Agregar avance</button> -->
@@ -119,4 +118,3 @@
     </div>
   </div>
 </div>
-  

@@ -10,6 +10,7 @@ export class NavbarService {
   constructor() {}
 
   openService(usuario) {
+    // ###################  IMPORTANTE  #########################
     // this.userId = usuario._id;
     // ID DE PRUEBA, BORRAR Y DEJAR EL RENGLON ANTERIOR PARA RECUPERAR ID DEL USUARIO LOGEADO
     this.userId = '5c532dc4b7c1441ce0d15754';
