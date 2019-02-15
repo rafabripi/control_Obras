@@ -47,13 +47,19 @@
 
                 <h5 class="card-title"> Imagenes </h5>
                 <p class="card-text"> Subir imagenes de este avance de obra </p>
-                <input type="file" 
-                (change)="onArchivoSeleccionado($event)"  
-                  class="form-control" 
-                  formControlName="fotos" 
-                  name="fotos" 
-                  required
-                  multiple>
+                <!-- ----------------- -->
+                <div class="custom-file">
+                    <input 
+                      type="file" 
+                      class="form-control custom-file-input" 
+                      id="customFile"
+                      (change)="onArchivoSeleccionado($event)" 
+                      formControlName="fotos" 
+                      name="fotos" 
+                      required
+                      multiple>
+                    <label class="custom-file-label" for="customFile">{{labelFile}}</label>
+                </div>
               </div>
             </div>
           </div>

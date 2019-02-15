@@ -7,6 +7,7 @@ import { Img } from '../../models/img.model';
 // Servicios
 import { AvanceService } from 'src/app/services/avance.service';
 import { FotosService } from '../../services/fotos.service';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-nuevo-avance',
@@ -20,6 +21,7 @@ export class NuevoAvanceComponent implements OnInit {
   userId: string;
   fotos: any;
   avanceId: string;
+  labelFile: string;
 
   @Output() cambioAvance: EventEmitter<number> = new EventEmitter();
   @Input() avanceActual: number;
@@ -29,6 +31,7 @@ export class NuevoAvanceComponent implements OnInit {
     private _fotoService: FotosService,
     private activatedRoute: ActivatedRoute
   ) {
+    this.labelFile = 'Elegir archivos';
     this.avance = [];
     this.userId = JSON.parse( localStorage.getItem('usuario'))._id;
     this.activatedRoute.params.subscribe( params => {
@@ -47,6 +50,14 @@ export class NuevoAvanceComponent implements OnInit {
 
   onArchivoSeleccionado(event) {
     this.fotos = event.target.files;
+    this.labelFile = '';
+    for (const key in this.fotos) {
+      if (this.fotos.hasOwnProperty(key)) {
+        const element = this.fotos[key];
+        this.labelFile += ', ' + element.name;
+        console.log(this.labelFile);
+      }
+    }
   }
 
   onSubmit() {
