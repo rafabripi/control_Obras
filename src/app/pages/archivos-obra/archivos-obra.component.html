@@ -17,6 +17,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
+      <form [formGroup]="formulario">
 
         <table class="table animated fadeIn fast">
           <thead>
@@ -27,48 +28,48 @@
             </tr>
           </thead>
           <tbody>
-              <!-- <tr *ngFor="let item of obras; let i = index"> -->
+            <!-- <tr *ngFor="let item of obras; let i = index"> -->
               <tr>
                 <th scope="row"> 1 </th>
                 <td> Anticipo</td>
                 <td>
                   <div class="custom-control custom-checkbox mb-1">
-                    <input  type="checkbox" 
-                            class="custom-control-input" 
-                            id="customControlValidation1"
-                            formControlName="anticipo"
-                            name="anticipo"
-                            >
-                    <label class="custom-control-label" for="customControlValidation1"> </label>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"> 2 </th>
-                <td> Contrato</td>
+                      <input  type="checkbox" 
+                      class="custom-control-input" 
+                      id="customControlValidation1"
+                      formControlName="anticipo"
+                      name="anticipo"
+                      >
+                        <label class="custom-control-label" for="customControlValidation1"> </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> 2 </th>
+                    <td> Contrato</td>
+                    <td>
+                      <div class="custom-control custom-checkbox mb-1">
+                        <input  type="checkbox" 
+                        class="custom-control-input" 
+                        id="customControlValidation2"
+                        formControlName="contrato"
+                        name="contrato"
+                        >
+                        <label class="custom-control-label" for="customControlValidation2"> </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> 3 </th>
+                    <td> Estimacion unica y finiquito</td>
                 <td>
                   <div class="custom-control custom-checkbox mb-1">
                     <input  type="checkbox" 
-                            class="custom-control-input" 
-                            id="customControlValidation2"
-                            formControlName="contrato"
-                            name="contrato"
-                            >
-                    <label class="custom-control-label" for="customControlValidation2"> </label>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"> 3 </th>
-                <td> Estimacion unica y finiquito</td>
-                <td>
-                  <div class="custom-control custom-checkbox mb-1">
-                    <input  type="checkbox" 
-                            class="custom-control-input" 
-                            id="customControlValidation3"
-                            formControlName="euf"
-                            name="euf"
-                            >
+                    class="custom-control-input" 
+                    id="customControlValidation3"
+                    formControlName="euf"
+                    name="euf"
+                    >
                     <label class="custom-control-label" for="customControlValidation3"> </label>
                   </div>
                 </td>
@@ -79,11 +80,11 @@
                 <td>
                   <div class="custom-control custom-checkbox mb-1">
                     <input  type="checkbox" 
-                            class="custom-control-input" 
-                            id="customControlValidation4"
-                            formControlName="acta_entrega"
-                            name="acta_entrega"
-                            >
+                    class="custom-control-input" 
+                    id="customControlValidation4"
+                    formControlName="acta_entrega"
+                    name="acta_entrega"
+                    >
                     <label class="custom-control-label" for="customControlValidation4"> </label>
                   </div>
                 </td>
@@ -94,11 +95,11 @@
                 <td>
                   <div class="custom-control custom-checkbox mb-1">
                     <input  type="checkbox" 
-                            class="custom-control-input" 
-                            id="customControlValidation5"
-                            formControlName="bitacora"
-                            name="bitacora"
-                            >
+                    class="custom-control-input" 
+                    id="customControlValidation5"
+                    formControlName="bitacora"
+                    name="bitacora"
+                    >
                     <label class="custom-control-label" for="customControlValidation5"> </label>
                   </div>
                 </td>
@@ -109,18 +110,19 @@
                 <td>
                   <div class="custom-control custom-checkbox mb-1">
                     <input  type="checkbox" 
-                            class="custom-control-input" 
-                            id="customControlValidation6"
-                            formControlName="finiquito"
-                            name="finiquito"
-                            >
+                    class="custom-control-input" 
+                    id="customControlValidation6"
+                    formControlName="finiquito"
+                    name="finiquito"
+                    >
                     <label class="custom-control-label" for="customControlValidation6"> </label>
                   </div>
                 </td>
               </tr>
+            
           </tbody>
         </table>
-
+      </form>
     </div>
   </div>
 </div>

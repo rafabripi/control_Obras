@@ -22,7 +22,7 @@ export class ArchivosObraComponent implements OnInit {
     this.formulario = new FormGroup({
       anticipo: new FormControl (true),
       contrato: new FormControl (true),
-      euf: new FormControl (true),
+      euf: new FormControl (false),
       acta_entrega: new FormControl (true),
       bitacora: new FormControl (true),
       finiquito: new FormControl (true)
