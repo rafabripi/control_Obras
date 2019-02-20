@@ -1,0 +1,13 @@
+form button, form input[type='submit'] {
+    margin-top: 0px;
+    width: 55px;
+}
+.custom-control {
+    position: relative;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 4.5rem;
+}
+.button {
+    width: 100px;
+}
