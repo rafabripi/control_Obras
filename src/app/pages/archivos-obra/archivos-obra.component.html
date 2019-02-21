@@ -17,12 +17,12 @@
         role="group"
         aria-label="Basic example"
       >
-        <button type="button" class="btn btn-dark btn-sm" (click)="backClicked()">
+        <button type="button" class="btn btn-dark" (click)="backClicked()">
           Atras
         </button>
         <button
           type="button"
-          class="btn btn-dark btn-sm"
+          class="btn btn-dark"
           [routerLink]="['/fotos', 'avance', obraId]"
         >
           Fotos
@@ -32,16 +32,15 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <form [formGroup]="formulario">
         <table class="table align-items-center">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Tipo de archivo</th>
-              <th scope="col">Archivo cargado</th>
-              <th scope="col">Guardar</th>
-              <th scope="col">Descargar</th>
-              <th scope="col">Eliminar</th>
+              <th scope="col" class="centered">Archivo cargado</th>
+              <th scope="col" class="centered">Guardar</th>
+              <th scope="col" class="centered">Descargar</th>
+              <th scope="col" class="centered">Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -49,34 +48,33 @@
             <tr>
               <th scope="row">1</th>
               <td>Anticipo</td>
-              <td>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlValidation1"
-                    formControlName="anticipo"
-                    name="anticipo"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="customControlValidation1"
-                  >
-                  </label>
-                </div>
+              <td class="check centered">
+                <button type="button"
+                 [ngClass]="{
+                  'btn-success' : anticipo === true,
+                  'btn-secondary' : anticipo === false
+                 }" 
+                 class="btn ">
+                  <i 
+                  [ngClass]="{
+                    'fa-check-square' : anticipo === true,
+                    'fa-square' : anticipo === false
+                  }"
+                  class="far fa-check-square"></i>
+                </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-save"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="fas fa-download"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
@@ -84,34 +82,33 @@
             <tr>
               <th scope="row">2</th>
               <td>Contrato</td>
-              <td>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlValidation2"
-                    formControlName="contrato"
-                    name="contrato"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="customControlValidation2"
-                  >
-                  </label>
-                </div>
+              <td class="check centered">
+                <button type="button"
+                 [ngClass]="{
+                  'btn-success' : contrato === true,
+                  'btn-secondary' : contrato === false
+                 }" 
+                 class="btn ">
+                  <i 
+                  [ngClass]="{
+                    'fa-check-square' : contrato === true,
+                    'fa-square' : contrato === false
+                  }"
+                  class="far fa-check-square"></i>
+                </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-save"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="fas fa-download"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
@@ -119,34 +116,33 @@
             <tr>
               <th scope="row">3</th>
               <td>Estimacion unica y finiquito</td>
-              <td>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlValidation3"
-                    formControlName="euf"
-                    name="euf"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="customControlValidation3"
-                  >
-                  </label>
-                </div>
+              <td class="check centered">
+                <button type="button"
+                 [ngClass]="{
+                  'btn-success' : euf === true,
+                  'btn-secondary' : euf === false
+                 }" 
+                 class="btn ">
+                  <i 
+                  [ngClass]="{
+                    'fa-check-square' : euf === true,
+                    'fa-square' : euf === false
+                  }"
+                  class="far fa-check-square"></i>
+                </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-save"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="fas fa-download"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
@@ -154,34 +150,33 @@
             <tr>
               <th scope="row">4</th>
               <td>Acta de entrega</td>
-              <td>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlValidation4"
-                    formControlName="acta_entrega"
-                    name="acta_entrega"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="customControlValidation4"
-                  >
-                  </label>
-                </div>
+              <td class="check centered">
+                <button type="button"
+                 [ngClass]="{
+                  'btn-success' : acta_entrega === true,
+                  'btn-secondary' : acta_entrega === false
+                 }" 
+                 class="btn ">
+                  <i 
+                  [ngClass]="{
+                    'fa-check-square' : acta_entrega === true,
+                    'fa-square' : acta_entrega === false
+                  }"
+                  class="far fa-check-square"></i>
+                </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-save"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="fas fa-download"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
@@ -189,34 +184,33 @@
             <tr>
               <th scope="row">5</th>
               <td>Bitacora</td>
-              <td>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlValidation5"
-                    formControlName="bitacora"
-                    name="bitacora"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="customControlValidation5"
-                  >
-                  </label>
-                </div>
+              <td class="check centered">
+                <button type="button"
+                 [ngClass]="{
+                  'btn-success' : bitacora === true,
+                  'btn-secondary' : bitacora === false
+                 }" 
+                 class="btn ">
+                  <i 
+                  [ngClass]="{
+                    'fa-check-square' : bitacora === true,
+                    'fa-square' : bitacora === false
+                  }"
+                  class="far fa-check-square"></i>
+                </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-save"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="fas fa-download"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
@@ -224,41 +218,39 @@
             <tr>
               <th scope="row">6</th>
               <td>Finiquito</td>
-              <td>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customControlValidation6"
-                    formControlName="finiquito"
-                    name="finiquito"
-                  />
-                  <label
-                    class="custom-control-label"
-                    for="customControlValidation6"
-                  >
-                  </label>
-                </div>
+              <td class="check centered">
+                <button type="button"
+                 [ngClass]="{
+                  'btn-success' : finiquito === true,
+                  'btn-secondary' : finiquito === false
+                 }" 
+                 class="btn ">
+                  <i 
+                  [ngClass]="{
+                    'fa-check-square' : finiquito === true,
+                    'fa-square' : finiquito === false
+                  }"
+                  class="far fa-check-square"></i>
+                </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-save"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="fas fa-download"></i>
                 </button>
               </td>
-              <td class="button">
-                <button class="btn btn-dark btn-sm">
+              <td class="button centered">
+                <button class="btn btn-dark">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
             </tr>
           </tbody>
         </table>
-      </form>
     </div>
   </div>
 </div>

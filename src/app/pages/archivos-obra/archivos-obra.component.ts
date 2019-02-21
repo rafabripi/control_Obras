@@ -10,23 +10,27 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ArchivosObraComponent implements OnInit {
   obraId: any;
-  formulario: FormGroup;
+  anticipo: boolean; 
+  contrato: boolean; 
+  euf: boolean; 
+  acta_entrega: boolean; 
+  bitacora: boolean; 
+  finiquito: boolean;
 
   constructor(private _location: Location, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe( params => {
       this.obraId = params['obraId'];
     });
+    this.anticipo = true;
+    this.contrato = true;
+    this.  euf = true;
+    this.acta_entrega = true;
+    this.bitacora = false;
+    this.finiquito = true;
   }
 
   ngOnInit() {
-    this.formulario = new FormGroup({
-      anticipo: new FormControl (true),
-      contrato: new FormControl (true),
-      euf: new FormControl (false),
-      acta_entrega: new FormControl (true),
-      bitacora: new FormControl (true),
-      finiquito: new FormControl (true)
-    });
+      
   }
 
   backClicked() {
