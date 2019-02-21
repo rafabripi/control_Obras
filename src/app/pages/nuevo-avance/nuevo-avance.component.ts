@@ -7,7 +7,6 @@ import { Img } from '../../models/img.model';
 // Servicios
 import { AvanceService } from 'src/app/services/avance.service';
 import { FotosService } from '../../services/fotos.service';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-nuevo-avance',
@@ -72,7 +71,7 @@ export class NuevoAvanceComponent implements OnInit {
     this._avanceService.saveAvance(dataAvance)
       .subscribe( respAvance => {
         this.avanceId = respAvance._id;
-        
+
         let dataFotos = new Img(
           this.idObra,
           this.avanceId,
@@ -90,8 +89,5 @@ export class NuevoAvanceComponent implements OnInit {
 
         this.cambioAvance.emit(respAvance.avance);
       });
-      
-        
-    
   }
 }

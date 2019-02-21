@@ -1,0 +1,22 @@
+<form ngNativeValidate [formGroup]="formulario" (ngSubmit)="onSubmit()" action="#">
+  <p>
+    nuevo-pdf works!
+  </p>
+
+  <div class="custom-file">
+      <input 
+        type="file" 
+        class="form-control custom-file-input" 
+        id="customFile"
+        formControlName="archivo" 
+        name="archivo" 
+        required
+        multiple>
+      <label class="custom-file-label" for="customFile">someLabel</label>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+    <input type="submit" value="Guardar" />
+  </div>
+</form>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 // Servicio
 import { UsuarioService } from './usuario.service';
@@ -42,7 +42,7 @@ export class FotosService {
     let formData = new FormData();
     formData.append('archivo', imagen, imagen.name);
     formData.append('obraId', data.obraId);
-    
+
     formData.append('avanceId', data.avanceId);
     formData.append('checklist', data.checklist);
     return this.http.put(URL_SERVICES + '/img/saveImg', formData, this.httpOptionsImg);
