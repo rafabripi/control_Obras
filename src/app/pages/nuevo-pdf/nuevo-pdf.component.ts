@@ -34,6 +34,7 @@ export class NuevoPdfComponent implements OnInit {
   onArchivoSeleccionado(event) {
     this.archivo = event.target.files;
   }
+  
   onSubmit() {
     let dataPdf = new Pdf(
       'anticipo',

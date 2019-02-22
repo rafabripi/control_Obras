@@ -49,22 +49,25 @@
               <th scope="row">1</th>
               <td>Anticipo</td>
               <td class="check centered">
-                <button type="button"
-                 [ngClass]="{
+                <button 
+                  type="button"
+                  [ngClass]="{
                   'btn-success' : anticipo === true,
                   'btn-secondary' : anticipo === false
-                 }" 
-                 class="btn ">
-                  <i 
-                  [ngClass]="{
-                    'fa-check-square' : anticipo === true,
-                    'fa-square' : anticipo === false
-                  }"
-                  class="far fa-check-square"></i>
+                  }" 
+                  class="btn ">
+                    <i 
+                      [ngClass]="{
+                        'fa-check-square' : anticipo === true,
+                        'fa-square' : anticipo === false
+                      }"
+                  class="far"></i>
                 </button>
               </td>
               <td class="button centered">
-                <button class="btn btn-dark"
+                <button 
+                        (click)="saveClick('anticipo')"
+                        class="btn btn-dark"
                         data-toggle="modal" 
                         data-target="#pdfModal"
                 >
@@ -275,7 +278,7 @@
 
       <div class="modal-body">
       <!----------------------------Componente a mostrar---------------------------------  -->
-        <app-nuevo-pdf ></app-nuevo-pdf>
+        <app-nuevo-pdf></app-nuevo-pdf>
       <!---------------------------------------------------------------------------------  -->
       </div>
     </div>

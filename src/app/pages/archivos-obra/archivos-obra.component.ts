@@ -15,6 +15,7 @@ export class ArchivosObraComponent implements OnInit {
   acta_entrega: boolean;
   bitacora: boolean;
   finiquito: boolean;
+  tipoArchivo: string;
 
   constructor(private _location: Location, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe( params => {
@@ -26,6 +27,7 @@ export class ArchivosObraComponent implements OnInit {
     this.acta_entrega = true;
     this.bitacora = false;
     this.finiquito = true;
+    this.tipoArchivo = '';
   }
 
   ngOnInit() {
@@ -33,5 +35,10 @@ export class ArchivosObraComponent implements OnInit {
 
   backClicked() {
     this._location.back();
+  }
+
+  saveClick(tipo) {
+    this.tipoArchivo = tipo;
+    console.log(this.tipoArchivo);
   }
 }
