@@ -278,7 +278,7 @@
 
       <div class="modal-body">
       <!----------------------------Componente a mostrar---------------------------------  -->
-        <app-nuevo-pdf></app-nuevo-pdf>
+        <app-nuevo-pdf (changeStauts)="actualizaEstado( $event )" [tipoArchivo]="tipoArchivo" ></app-nuevo-pdf>
       <!---------------------------------------------------------------------------------  -->
       </div>
     </div>

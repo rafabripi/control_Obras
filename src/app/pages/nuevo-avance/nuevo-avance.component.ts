@@ -50,11 +50,10 @@ export class NuevoAvanceComponent implements OnInit {
   onArchivoSeleccionado(event) {
     this.fotos = event.target.files;
     this.labelFile = '';
-    for (const key in this.fotos) {
+    for (const key in this.  fotos) {
       if (this.fotos.hasOwnProperty(key)) {
         const element = this.fotos[key];
-        this.labelFile += ', ' + element.name;
-        console.log(this.labelFile);
+        this.labelFile += element.name + ', ';
       }
     }
   }

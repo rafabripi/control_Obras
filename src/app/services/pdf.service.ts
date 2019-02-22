@@ -29,6 +29,21 @@ export class PdfService {
   }
 
   savePdf(pdf: File, data: any) {
-    console.log('service to save afile');
+    let formData = new FormData();
+    let name = pdf[0].name;
+    formData.append('archivo', pdf[0], name);
+    formData.append('checklist', data.checklist);
+    formData.append('obraId', data.obraId);
+
+    return this.http.put(URL_SERVICES + '/pdf/savePdf', formData, this.httpOptionsPdf)
+      .map( (resp: any) => {
+        swal('Archivo guardado!', resp.pdf.checklist.toString().toUpperCase(), 'success');
+        return resp.avance;
+      });
+  }
+
+  getPdfsObra(obraId) {
+    return this.http.get( URL_SERVICES + `/pdf/getPdfsObra/${obraId}`, this.httpOptions)
+      .map( (respGet: any) => respGet);
   }
 }

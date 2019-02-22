@@ -8,13 +8,12 @@
         type="file" 
         class="form-control custom-file-input" 
         id="customFile"
+        (change)="onArchivoSeleccionado($event)"
         formControlName="archivo" 
         name="archivo" 
-        required
-        multiple>
-      <label class="custom-file-label" for="customFile">someLabel</label>
+        required>
+      <label class="custom-file-label" for="customFile">{{labelFile}}</label>
   </div>
-
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
     <input type="submit" value="Guardar" />
