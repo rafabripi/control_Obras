@@ -46,4 +46,9 @@ export class PdfService {
     return this.http.get( URL_SERVICES + `/pdf/getPdfsObra/${obraId}`, this.httpOptions)
       .map( (respGet: any) => respGet);
   }
+
+  downloadPdf() {
+    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=5c59fd43f445821708e526c7-anticipo.pdf`, this.httpOptionsPdf)
+      .map( (respPdf) => respPdf );
+  }
 }

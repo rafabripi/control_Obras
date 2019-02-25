@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import { Pdf } from '../../models/pdf.model';
 // SERVICIOS
 import { PdfService } from '../../services/pdf.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-archivos-obra',
@@ -32,28 +31,33 @@ export class ArchivosObraComponent implements OnInit {
       this.obraId = params['obraId'];
     });
     this.conteo = 0;
-    this.cargarArchivos();
   }
 
+  ngOnInit() {
+    this.cargarArchivos();
+  }
 
   cargarArchivos() {
     this._pdfService.getPdfsObra(this.obraId)
       .subscribe( dataArchivo => {
+        let cadenaArchivos = '';
         this.pdfs = dataArchivo.pdfs;
         this.conteo = dataArchivo.conteo;
-        // PROBAR USAR INDEXOF PARA BUSCAR LOS CHECKLIST EN pdfs
-        ///////////////////////////////////////////
-        this.anticipo = true;
-        this.contrato = false;
-        this.euf = true;
-        this.acta_entrega = true;
-        this.bitacora = false;
-        this.finiquito = true;
+        for (const key in this.pdfs) {
+          if (this.pdfs.hasOwnProperty(key)) {
+            const element = this.pdfs[key];
+            cadenaArchivos += element.checklist;
+          }
+        }
+
+        this.anticipo = (cadenaArchivos.indexOf('anticipo') >= 0);
+        this.contrato = (cadenaArchivos.indexOf('contrato') >= 0);
+        this.euf = (cadenaArchivos.indexOf('euf') >= 0);
+        this.acta_entrega = (cadenaArchivos.indexOf('acta_entrega') >= 0);
+        this.bitacora = (cadenaArchivos.indexOf('bitacora') >= 0);
+        this.finiquito = (cadenaArchivos.indexOf('finiquito') >= 0);
         this.tipoArchivo = '';
       });
-  }
-
-  ngOnInit() {
   }
 
   actualizaEstado( $event ) {
@@ -67,5 +71,10 @@ export class ArchivosObraComponent implements OnInit {
 
   saveClick(tipo) {
     this.tipoArchivo = tipo;
+  }
+
+  downloadClicked() {
+    this._pdfService.downloadPdf()
+      .subscribe();
   }
 }
