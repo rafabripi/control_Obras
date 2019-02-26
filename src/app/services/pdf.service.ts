@@ -48,7 +48,12 @@ export class PdfService {
   }
 
   downloadPdf() {
-    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=5c59fd43f445821708e526c7-anticipo.pdf`, this.httpOptionsPdf)
+    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=5c59fd43f445821708e526c7-avance-34.png`, this.httpOptionsPdf)
       .map( (respPdf) => respPdf );
+  }
+
+  delFile(nombre: string, id: string) {
+    return this.http.delete(URL_SERVICES + `/pdf/delFile/?nombre=${nombre}&id=${id}`, this.httpOptions)
+      .map ( (respDel) => respDel );
   }
 }

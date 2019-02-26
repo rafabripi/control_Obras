@@ -77,12 +77,14 @@
               <td class="button centered">
                 <button 
                   class="btn btn-dark" 
-                  (click)="downloadClicked()">
+                  (click)="downloadClicked('anticipo')">
                   <i class="fas fa-download"></i>
                 </button>
               </td>
               <td class="button centered">
-                <button class="btn btn-dark">
+                <button 
+                  (click)="delClicked('anticipo')"
+                  class="btn btn-dark">
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>

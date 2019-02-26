@@ -69,12 +69,18 @@ export class ArchivosObraComponent implements OnInit {
     this._location.back();
   }
 
-  saveClick(tipo) {
+  saveClick(tipo: string) {
     this.tipoArchivo = tipo;
   }
 
-  downloadClicked() {
+  downloadClicked(tipo: string) {
     this._pdfService.downloadPdf()
       .subscribe();
+  }
+
+  delClicked(tipo: string) {
+    // this.obraId
+    console.log('borrar');
+    // this.}
   }
 }
