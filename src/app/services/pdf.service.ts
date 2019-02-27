@@ -47,15 +47,15 @@ export class PdfService {
       .map( (respGet: any) => respGet);
   }
 
-  downloadPdf() {
-    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=5c59fd43f445821708e526c7-avance-34.png`, this.httpOptionsPdf)
+  downloadPdf(nombre: string) {
+    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=${nombre}`, this.httpOptionsPdf)
       .map( (respPdf) => respPdf );
   }
 
   delFile(nombre: string, id: string) {
     return this.http.delete(URL_SERVICES + `/pdf/delFile/?nombre=${nombre}&id=${id}`, this.httpOptions)
     .map ( (respDel) => {
-      swal('Archivo guardado!', nombre, 'success');
+      swal('Archivo borrado!', nombre, 'success');
       return respDel;
     });
   }

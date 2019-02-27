@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-// MODELOS
-import { Pdf } from '../../models/pdf.model';
 // SERVICIOS
 import { PdfService } from '../../services/pdf.service';
 
@@ -13,11 +11,11 @@ import { PdfService } from '../../services/pdf.service';
 })
 export class ArchivosObraComponent implements OnInit {
   obraId: any;
-  tipoArchivo: string;
   pdfs: any;
-  conteo: number;
   archivoToDel: string;
+  archivoToDown: string;
   archivoId: string;
+  tipoToSave: string;
   // FLAGS
   anticipo: boolean;
   contrato: boolean;
@@ -32,9 +30,9 @@ export class ArchivosObraComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => {
       this.obraId = params['obraId'];
     });
-    this.conteo = 0;
-    this.archivoToDel= '';
-    this.archivoId= '';
+    this.archivoToDown = '',
+    this.archivoToDel = '';
+    this.archivoId = '';
   }
 
   ngOnInit() {
@@ -46,7 +44,6 @@ export class ArchivosObraComponent implements OnInit {
       .subscribe( dataArchivo => {
         let cadenaArchivos = '';
         this.pdfs = dataArchivo.pdfs;
-        this.conteo = dataArchivo.conteo;
         for (const key in this.pdfs) {
           if (this.pdfs.hasOwnProperty(key)) {
             const element = this.pdfs[key];
@@ -60,40 +57,47 @@ export class ArchivosObraComponent implements OnInit {
         this.acta_entrega = (cadenaArchivos.indexOf('acta_entrega') >= 0);
         this.bitacora = (cadenaArchivos.indexOf('bitacora') >= 0);
         this.finiquito = (cadenaArchivos.indexOf('finiquito') >= 0);
-        this.tipoArchivo = '';
       });
   }
 
-  actualizaEstado( $event ) {
-    console.log($event);
-
-  }
-
+  // -------------------Click de botones-------------------------
   backClicked() {
     this._location.back();
   }
 
   saveClick(tipo: string) {
-    this.tipoArchivo = tipo;
+    // Se usa para mandarlo como input al componente hijo
+    this.tipoToSave = tipo;
   }
 
   downloadClicked(tipo: string) {
-    this._pdfService.downloadPdf()
+    console.log(tipo);
+    for (const key in this.pdfs) {
+      if (this.pdfs.hasOwnProperty(key)) {
+        const element = this.pdfs[key];
+        if (element.checklist === tipo) {
+          this.archivoToDown = element.nombre;
+        }
+      }
+    }
+    console.log(this.archivoToDown);
+    this._pdfService.downloadPdf(this.archivoToDown)
       .subscribe();
   }
 
   delClicked(tipo: string) {
-    // this.obraId
     for (const key in this.pdfs) {
       if (this.pdfs.hasOwnProperty(key)) {
         const element = this.pdfs[key];
         if (element.checklist === tipo) {
           this.archivoToDel = element.nombre;
           this.archivoId = element._id;
-        } 
+        }
       }
     }
     this._pdfService.delFile(this.archivoToDel, this.archivoId)
-      .subscribe();
+      .subscribe( data => {
+        this.cargarArchivos();
+      });
   }
 }

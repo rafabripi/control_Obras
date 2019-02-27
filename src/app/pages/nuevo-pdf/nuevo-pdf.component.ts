@@ -17,8 +17,8 @@ export class NuevoPdfComponent implements OnInit {
   idObra: string;
   labelFile: string;
 
-  @Input() tipoArchivo: string;
   @Output() changeStauts: EventEmitter<any> = new EventEmitter();
+  @Input() tipoArchivo: string;
 
   constructor(
     private _pdfService: PdfService,
@@ -28,6 +28,7 @@ export class NuevoPdfComponent implements OnInit {
       this.idObra = params['obraId'];
     });
     this.labelFile = 'Elegir archivo';
+    this.tipoArchivo = '';
   }
 
   ngOnInit() {
