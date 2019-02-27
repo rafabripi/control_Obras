@@ -54,6 +54,9 @@ export class PdfService {
 
   delFile(nombre: string, id: string) {
     return this.http.delete(URL_SERVICES + `/pdf/delFile/?nombre=${nombre}&id=${id}`, this.httpOptions)
-      .map ( (respDel) => respDel );
+    .map ( (respDel) => {
+      swal('Archivo guardado!', nombre, 'success');
+      return respDel;
+    });
   }
 }

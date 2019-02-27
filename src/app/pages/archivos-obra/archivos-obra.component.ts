@@ -14,8 +14,10 @@ import { PdfService } from '../../services/pdf.service';
 export class ArchivosObraComponent implements OnInit {
   obraId: any;
   tipoArchivo: string;
-  pdfs: Pdf[];
+  pdfs: any;
   conteo: number;
+  archivoToDel: string;
+  archivoId: string;
   // FLAGS
   anticipo: boolean;
   contrato: boolean;
@@ -31,6 +33,8 @@ export class ArchivosObraComponent implements OnInit {
       this.obraId = params['obraId'];
     });
     this.conteo = 0;
+    this.archivoToDel= '';
+    this.archivoId= '';
   }
 
   ngOnInit() {
@@ -80,7 +84,16 @@ export class ArchivosObraComponent implements OnInit {
 
   delClicked(tipo: string) {
     // this.obraId
-    console.log('borrar');
-    // this.}
+    for (const key in this.pdfs) {
+      if (this.pdfs.hasOwnProperty(key)) {
+        const element = this.pdfs[key];
+        if (element.checklist === tipo) {
+          this.archivoToDel = element.nombre;
+          this.archivoId = element._id;
+        } 
+      }
+    }
+    this._pdfService.delFile(this.archivoToDel, this.archivoId)
+      .subscribe();
   }
 }

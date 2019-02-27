@@ -1,4 +1,5 @@
 <div class="container animated fadeIn fast">
+  <!-- ---------------------------Primer row encabezado----------------------- -->
   <div class="row">
     <div class="col-sm-12">
       <h2>Administracion de archivos</h2>
@@ -10,13 +11,10 @@
       </p>
     </div>
   </div>
+  <!-- ----------------------------Segundo row Botones------------------------ -->
   <div class="row">
     <div class="col-sm-8">
-      <div
-        class="btn-group btn-group-lg"
-        role="group"
-        aria-label="Basic example"
-      >
+      <div class="btn-group btn-group-lg" role="group">
         <button type="button" class="btn btn-dark" (click)="backClicked()">
           Atras
         </button>
@@ -30,6 +28,7 @@
       </div>
     </div>
   </div>
+  <!-- ------------------------------Tercer row Tabla--------------------------- -->
   <div class="row">
     <div class="col-sm-12">
         <table class="table align-items-center">
@@ -89,176 +88,178 @@
                 </button>
               </td>
             </tr>
+            <!-- ------------------------------- -->
             <tr>
-              <th scope="row">2</th>
-              <td>Contrato</td>
-              <td class="check centered">
-                <button type="button"
-                 [ngClass]="{
-                  'btn-success' : contrato === true,
-                  'btn-secondary' : contrato === false
-                 }" 
-                 class="btn ">
-                  <i 
-                  [ngClass]="{
-                    'fa-check-square' : contrato === true,
-                    'fa-square' : contrato === false
-                  }"
-                  class="far fa-check-square"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-save"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="fas fa-download"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Estimacion unica y finiquito</td>
-              <td class="check centered">
-                <button type="button"
-                 [ngClass]="{
-                  'btn-success' : euf === true,
-                  'btn-secondary' : euf === false
-                 }" 
-                 class="btn ">
-                  <i 
-                  [ngClass]="{
-                    'fa-check-square' : euf === true,
-                    'fa-square' : euf === false
-                  }"
-                  class="far fa-check-square"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-save"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="fas fa-download"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Acta de entrega</td>
-              <td class="check centered">
-                <button type="button"
-                 [ngClass]="{
-                  'btn-success' : acta_entrega === true,
-                  'btn-secondary' : acta_entrega === false
-                 }" 
-                 class="btn ">
-                  <i 
-                  [ngClass]="{
-                    'fa-check-square' : acta_entrega === true,
-                    'fa-square' : acta_entrega === false
-                  }"
-                  class="far fa-check-square"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-save"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="fas fa-download"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Bitacora</td>
-              <td class="check centered">
-                <button type="button"
-                 [ngClass]="{
-                  'btn-success' : bitacora === true,
-                  'btn-secondary' : bitacora === false
-                 }" 
-                 class="btn ">
-                  <i 
-                  [ngClass]="{
-                    'fa-check-square' : bitacora === true,
-                    'fa-square' : bitacora === false
-                  }"
-                  class="far fa-check-square"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-save"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="fas fa-download"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>Finiquito</td>
-              <td class="check centered">
-                <button type="button"
-                 [ngClass]="{
-                  'btn-success' : finiquito === true,
-                  'btn-secondary' : finiquito === false
-                 }" 
-                 class="btn ">
-                  <i 
-                  [ngClass]="{
-                    'fa-check-square' : finiquito === true,
-                    'fa-square' : finiquito === false
-                  }"
-                  class="far fa-check-square"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-save"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="fas fa-download"></i>
-                </button>
-              </td>
-              <td class="button centered">
-                <button class="btn btn-dark">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
+                <th scope="row">2</th>
+                <td>Contrato</td>
+                <td class="check centered">
+                  <button type="button"
+                   [ngClass]="{
+                    'btn-success' : contrato === true,
+                    'btn-secondary' : contrato === false
+                   }" 
+                   class="btn ">
+                    <i 
+                    [ngClass]="{
+                      'fa-check-square' : contrato === true,
+                      'fa-square' : contrato === false
+                    }"
+                    class="far fa-check-square"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-save"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Estimacion unica y finiquito</td>
+                <td class="check centered">
+                  <button type="button"
+                   [ngClass]="{
+                    'btn-success' : euf === true,
+                    'btn-secondary' : euf === false
+                   }" 
+                   class="btn ">
+                    <i 
+                    [ngClass]="{
+                      'fa-check-square' : euf === true,
+                      'fa-square' : euf === false
+                    }"
+                    class="far fa-check-square"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-save"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Acta de entrega</td>
+                <td class="check centered">
+                  <button type="button"
+                   [ngClass]="{
+                    'btn-success' : acta_entrega === true,
+                    'btn-secondary' : acta_entrega === false
+                   }" 
+                   class="btn ">
+                    <i 
+                    [ngClass]="{
+                      'fa-check-square' : acta_entrega === true,
+                      'fa-square' : acta_entrega === false
+                    }"
+                    class="far fa-check-square"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-save"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Bitacora</td>
+                <td class="check centered">
+                  <button type="button"
+                   [ngClass]="{
+                    'btn-success' : bitacora === true,
+                    'btn-secondary' : bitacora === false
+                   }" 
+                   class="btn ">
+                    <i 
+                    [ngClass]="{
+                      'fa-check-square' : bitacora === true,
+                      'fa-square' : bitacora === false
+                    }"
+                    class="far fa-check-square"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-save"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Finiquito</td>
+                <td class="check centered">
+                  <button type="button"
+                   [ngClass]="{
+                    'btn-success' : finiquito === true,
+                    'btn-secondary' : finiquito === false
+                   }" 
+                   class="btn ">
+                    <i 
+                    [ngClass]="{
+                      'fa-check-square' : finiquito === true,
+                      'fa-square' : finiquito === false
+                    }"
+                    class="far fa-check-square"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-save"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </td>
+                <td class="button centered">
+                  <button class="btn btn-dark">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            
           </tbody>
         </table>
     </div>
