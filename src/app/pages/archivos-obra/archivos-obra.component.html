@@ -69,8 +69,7 @@
                         class="btn btn-dark"
                         data-toggle="modal" 
                         data-target="#pdfModal"
-                        [attr.disabled]="false"
-                        
+                        [disabled]= anticipo
                 >
                   <i class="far fa-save"></i>
                 </button>
@@ -78,14 +77,16 @@
               <td class="button centered">
                 <button 
                   class="btn btn-dark" 
-                  (click)="downloadClicked('anticipo')">
+                  (click)="downloadClicked('anticipo')"
+                  [disabled]= !anticipo>
                   <i class="fas fa-download"></i>
                 </button>
               </td>
               <td class="button centered">
                 <button 
                   (click)="delClicked('anticipo')"
-                  class="btn btn-dark">
+                  class="btn btn-dark"
+                  [disabled]= !anticipo>
                   <i class="far fa-trash-alt"></i>
                 </button>
               </td>
