@@ -48,8 +48,13 @@ export class PdfService {
   }
 
   downloadPdf(nombre: string) {
-    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=${nombre}`, this.httpOptionsPdf)
-      .map( (respPdf) => respPdf );
+    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=${nombre}`, {
+      responseType: 'blob',
+      headers: new HttpHeaders().append('Content-Type', 'application/pdf').append('token', this._usuarioService.token)
+    })
+      .map( (respPdf) => {
+        console.log(respPdf);
+      } );
   }
 
   delFile(nombre: string, id: string) {

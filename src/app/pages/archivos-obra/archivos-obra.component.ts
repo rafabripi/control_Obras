@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { saveAs } from 'file-saver';
 // SERVICIOS
 import { PdfService } from '../../services/pdf.service';
 
@@ -82,7 +83,15 @@ export class ArchivosObraComponent implements OnInit {
     }
     console.log(this.archivoToDown);
     this._pdfService.downloadPdf(this.archivoToDown)
-      .subscribe();
+      .subscribe(
+        data => {
+          saveAs(data, 'cualquierNombre');
+        },
+        err => {
+          alert('Problem while downloading the file.');
+          console.error(err);
+        }
+      );
   }
 
   delClicked(tipo: string) {
