@@ -72,7 +72,6 @@ export class ArchivosObraComponent implements OnInit {
   }
 
   downloadClicked(tipo: string) {
-    console.log(tipo);
     for (const key in this.pdfs) {
       if (this.pdfs.hasOwnProperty(key)) {
         const element = this.pdfs[key];
@@ -81,11 +80,13 @@ export class ArchivosObraComponent implements OnInit {
         }
       }
     }
-    console.log(this.archivoToDown);
+    let nombreCheck = this.archivoToDown.split('-');
+    let nombreFin = nombreCheck[1];
     this._pdfService.downloadPdf(this.archivoToDown)
       .subscribe(
         data => {
-          saveAs(data, 'cualquierNombre');
+          const fileBlob = new Blob([data], { type: 'application/pdf'})
+          saveAs(fileBlob, nombreFin);
         },
         err => {
           alert('Problem while downloading the file.');
@@ -95,18 +96,44 @@ export class ArchivosObraComponent implements OnInit {
   }
 
   delClicked(tipo: string) {
-    for (const key in this.pdfs) {
-      if (this.pdfs.hasOwnProperty(key)) {
-        const element = this.pdfs[key];
-        if (element.checklist === tipo) {
-          this.archivoToDel = element.nombre;
-          this.archivoId = element._id;
+    swal({
+      title: "Eliminar archivo",
+      text: "Esta seguro de eliminar el archivo?",
+      icon: "warning",
+      dangerMode: true,
+      buttons: {
+        cancel: {
+          text: "Cancelar",
+          value: null,
+          visible: true,
+          className: "",
+          closeModal: true,
+        },
+        confirm: {
+          text: "Borrar",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true
         }
-      }
-    }
-    this._pdfService.delFile(this.archivoToDel, this.archivoId)
-      .subscribe( data => {
-        this.cargarArchivos();
+    },
+    })
+      .then((value) => {
+        if (value) {
+          for (const key in this.pdfs) {
+            if (this.pdfs.hasOwnProperty(key)) {
+              const element = this.pdfs[key];
+              if (element.checklist === tipo) {
+                this.archivoToDel = element.nombre;
+                this.archivoId = element._id;
+              }
+            }
+          }
+          this._pdfService.delFile(this.archivoToDel, this.archivoId)
+            .subscribe( data => {
+              this.cargarArchivos();
+            });
+        }
       });
   }
 }

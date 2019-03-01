@@ -13,6 +13,7 @@ import { URL_SERVICES } from '../config/config';
 export class PdfService {
   httpOptions: any;
   httpOptionsPdf: any;
+  httpOptionsPdfDown: any;
 
   constructor(private http: HttpClient, private _usuarioService: UsuarioService) {
     this.httpOptions = {
@@ -26,6 +27,10 @@ export class PdfService {
         'token': this._usuarioService.token
       })
     };
+    this.httpOptionsPdfDown = {
+      responseType: 'blob',
+      headers: new HttpHeaders().append('Content-Type', 'application/pdf').append('token', this._usuarioService.token)
+    };
   }
 
   savePdf(pdf: File, data: any) {
@@ -37,7 +42,13 @@ export class PdfService {
 
     return this.http.put(URL_SERVICES + '/pdf/savePdf', formData, this.httpOptionsPdf)
       .map( (resp: any) => {
-        swal('Archivo guardado!', resp.pdf.checklist.toString().toUpperCase(), 'success');
+        swal(
+          {
+            title: 'Archivo guardado!',
+            text: resp.pdf.checklist.toString().toUpperCase(),
+            icon: "success",
+            timer: 1000,
+          });
         return resp.avance;
       });
   }
@@ -48,19 +59,18 @@ export class PdfService {
   }
 
   downloadPdf(nombre: string) {
-    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=${nombre}`, {
-      responseType: 'blob',
-      headers: new HttpHeaders().append('Content-Type', 'application/pdf').append('token', this._usuarioService.token)
-    })
-      .map( (respPdf) => {
-        console.log(respPdf);
-      } );
+    return this.http.get( URL_SERVICES + `/pdf/downloadPdf/?nombre=${nombre}`, this.httpOptionsPdfDown)
+      .map( (respPdf) => respPdf);
   }
 
   delFile(nombre: string, id: string) {
     return this.http.delete(URL_SERVICES + `/pdf/delFile/?nombre=${nombre}&id=${id}`, this.httpOptions)
     .map ( (respDel) => {
-      swal('Archivo borrado!', nombre, 'success');
+      swal({
+        title: "Archivo eliminado",
+        icon: "success",
+        timer: 1100,
+      });
       return respDel;
     });
   }
