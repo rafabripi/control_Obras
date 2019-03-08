@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 // SERVICIOS
 import { PdfService } from '../../services/pdf.service';
+import { MailService } from '../../services/mail.service';
 // MODELO
 import { Pdf } from '../../models/pdf.model';
 
@@ -22,7 +23,8 @@ export class NuevoPdfComponent implements OnInit {
 
   constructor(
     private _pdfService: PdfService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private _mailService: MailService
   ) {
     this.activatedRoute.params.subscribe( params => {
       this.idObra = params['obraId'];
@@ -33,7 +35,8 @@ export class NuevoPdfComponent implements OnInit {
 
   ngOnInit() {
     this.formulario = new FormGroup({
-      archivo: new FormControl()
+      archivo: new FormControl(),
+      comentarios: new FormControl(null)
     });
   }
 
@@ -48,11 +51,14 @@ export class NuevoPdfComponent implements OnInit {
       this.idObra
     );
 
-    this._pdfService.savePdf(this.archivo, dataPdf)
-      .subscribe( data => {
-        this.formulario.reset();
-        this.labelFile = 'Elegir archivo';
-        this.changeStauts.emit(true);
-      });
+    // this._pdfService.savePdf(this.archivo, dataPdf)
+    //   .subscribe( data => {
+    //     this.formulario.reset();
+    //     this.labelFile = 'Elegir archivo';
+    //     this.changeStauts.emit(true);
+    //   });
+
+    const DATA_FORM = this.formulario.value;
+    this._mailService.sendAnticipo(DATA_FORM.comentarios).subscribe();
   }
 }

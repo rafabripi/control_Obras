@@ -4,3 +4,6 @@ form button, form input[type='submit'] {
 .custom-file-input:lang(en)~.custom-file-label::after {
     content: "Buscar";
 }
+.nota {
+    color: darkgray;
+}
